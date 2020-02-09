@@ -1,0 +1,649 @@
+@import '../import.scss';
+
+.page-book
+{
+    .topBar
+    {
+        .sidebar-switcher { display: none; }
+    }
+
+    .header-strong
+    {
+        .book-icon
+        {
+            width: 75px;
+            height: 75px;
+            margin-bottom: $structureGap / 1.5;
+        }
+
+        .book-title
+        {
+            font-size: 170%;
+            margin-bottom: $structureGap / 1.5;
+        }
+
+        .book-stats
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: $structureGap * 2;
+
+            .stats-item
+            {
+                i { margin-right: 10px; }
+                &:hover { cursor: help; }
+                &:not(:last-of-type) { margin-right: $structureGap * 2; }
+            }
+        }
+    }
+
+    .book-info
+    {
+        margin-bottom: 80px;
+    }
+
+    .book-nav
+    {
+        height: 60px;
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        background-color: $c_BackgroundMuted;
+        border-bottom: 1px solid $c_Border;
+
+        .book-navItem
+        {
+            position: relative;
+            top: 1px;
+            height: 100%;
+
+            font-size: 120%;
+            color: $c_TextMuted;
+
+            display: flex;
+            align-items: center;
+
+            border-bottom: 2px solid transparent;
+
+            transition: color $animSpeed, border-color $animSpeed;
+
+            i { margin-right: 10px; }
+
+            &:not(:last-of-type)
+            {
+                margin-right: $structureGap * 2.5;
+
+                @include layout(small)
+                {
+                    margin-right: $structureGap;
+                }
+            }
+
+            &:hover
+            {
+                cursor: pointer;
+                color: $c_Text;
+                border-bottom-color: $c_BorderStrong;
+            }
+
+            &._active
+            {
+                color: $c_TextBrand;
+                border-bottom-color: $c_Brand;
+            }
+
+            @include layout(small)
+            {
+                padding: 0 $structureGap * 2;
+
+                i
+                {
+                    font-size: 130%;
+                    margin-right: 0;
+                }
+
+                span { display: none; }
+            }
+        }
+    }
+
+    .book-panes .book-pane
+    {
+        margin-top: $structureGap * 2.5;
+
+        @include layout-full
+        {
+            width: 800px;
+            margin: $structureGap * 2.5 auto 0;
+        }
+
+        &:not(._showing) { display: none; }
+
+        &--toc
+        {
+
+            .category
+            {
+                padding-bottom: 10px;
+                border-bottom: 1px solid $c_Border;
+                margin-top: $structureGap * 3;
+
+                @include layout(stretch)
+                {
+                    padding-left: $structureGap;
+                }
+            }
+
+            .article
+            {
+                border: 1px solid $c_BorderFaint;
+                border-radius: $borderRadius;
+                margin: $structureGap * 2 0;
+
+                .article-body
+                {
+                    border: none;
+                    box-shadow: none;
+
+                    .article-info
+                    {
+                        .title
+                        {
+                            color: $c_TextBrand;
+                            font-weight: normal;
+                            font-size: 125%;
+                            margin-bottom: 5px;
+
+                            a
+                            {
+                                text-decoration: none;
+                                &:hover { text-decoration: underline; }
+                            }
+
+                            .paragraph-num { font-weight: bold; }
+
+                            .tag
+                            {
+                                margin-left: $structureGap / 1.5;
+
+                                &:hover { cursor: help; }
+
+                                &--optional
+                                {
+                                    color: rgb(240, 196, 0);
+                                }
+                            }
+                        }
+                    }
+
+                    .article-actions
+                    {
+                        .article-action
+                        {
+                            color: $c_TextMuted;
+                            text-decoration: none;
+
+                            width: 50px;
+
+                            transition: color $animSpeed;
+
+                            &:hover
+                            {
+                                cursor: pointer;
+                                color: $c_Text;
+                            }
+
+                            &._active { color: $c_Brand; }
+
+                            i { font-size: 25px; }
+
+                            span
+                            {
+                                font-size: 110%;
+                                display: none;
+
+                                position: relative;
+                                top: -1px;
+                            }
+
+                            @include layout(small)
+                            {
+                                span { display: block; }
+
+                                &--headers  { i { margin-right: $structureGap; } }
+                                &--goto     { i { margin-left: $structureGap; } }
+                            }
+
+                            @include layout(mini)
+                            {
+                                i { margin: 0; }
+                                span { display: none; }
+                            }
+                        }
+                    }
+                }
+
+                .article-headers
+                {
+                    padding: $structureGap;
+                    border-top: 1px solid $c_BorderFaint;
+                    background: $c_BackgroundMuted;
+
+                    &:not(._showing) { display: none; }
+
+                    ol
+                    {
+                        list-style-type: none;
+
+                        li a
+                        {
+                            padding: 5px;
+                            text-decoration: none;
+
+                            &:hover { text-decoration: underline; }
+                        }
+
+                        .level-2, .level-3
+                        {
+                            margin-bottom: 5px;
+                        }
+
+                        .level-2
+                        {
+                            font-size: 125%;
+
+                            &:not(:first-of-type)
+                            {
+                                margin-top: $structureGap;
+                            }
+                        }
+
+                        .level-3 { font-size: 110%; }
+
+                        //
+                        // Indents
+                        //
+
+                        @for $i from 2 through 6
+                        {
+                            .level-#{$i}
+                            {
+                                margin-left: $structureGap * ($i - 2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &--contributors
+        {
+            .contributor
+            {
+                margin-top: $structureGap * 2;
+
+                .contributor-avatar
+                {
+                    $size: 64px;
+
+                    img 
+                    {
+                        width: $size; height: $size;
+                        border-radius: $borderRadius;
+                    }
+
+                    i 
+                    { 
+                        text-align: center;
+                        font-size: $size - 2px;
+
+                        height: $size;
+                        width: $size;
+                    }
+                }
+
+                .contributor-info
+                {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    .name
+                    {
+                        a
+                        {
+                            font-size: 110%;
+                            text-decoration: none;
+    
+                            &:hover { text-decoration: underline; }
+                        }
+
+                        .tag
+                        {
+                            margin-left: $structureGap / 1.5;
+
+                            line-height: 0;
+                            color: $c_TextMuted;
+                            transition: color $animSpeed;
+
+                            &:hover
+                            {
+                                color: $c_Brand;
+                            }
+                        }
+                    }
+
+                    .slogan
+                    {
+                        color: $c_TextMuted;
+                    }
+
+                    @include layout(mini)
+                    {
+                        text-align: center;
+                    }
+                }
+
+                .contributor-stats
+                {
+                    text-decoration: none;
+
+                    .contributor-statsItem
+                    {
+                        padding: $structureGap $structureGap * 2;
+                        color: $c_TextMuted;
+                        transition: color $animSpeed;
+
+                        i
+                        {
+                            text-align: center;
+                            width: 25px;
+                            font-size: 20px;
+                            margin-right: $structureGap / 2;
+                        }
+
+                        span
+                        {
+                            font-size: 115%;
+                        }
+
+                        &:hover
+                        {
+                            cursor: pointer;
+                            color: $c_Text;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .book-panes .book-pane.book-pane--index
+    {
+        .index-container
+        {
+            .noResults
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 150%;
+                color: $c_TextMuted;
+
+                i
+                {
+                    font-size: 40px;
+                    margin-right: $structureGap;
+                }
+
+                @include layout(mini)
+                {
+                    font-size: 130%;
+                    i { font-size: 30px; }
+                }
+            }
+        }
+
+        .search-index
+        {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-bottom: $structureGap * 2.5;
+
+            input
+            {
+                width: 100%;
+
+                font-size: 100%;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                padding: $structureGap / 1.5;
+                padding-right: 50px;
+
+                border: 2px solid $c_Border;
+                border-radius: $borderRadius;
+                outline: 0;
+            
+                transition: border-color $animSpeed, box-shadow $animSpeed;
+
+                &._nEmpty
+                {
+                    border-color: orange;
+                    box-shadow: 2px 2px 5px rgba(orange, 0.25);
+                }
+
+                &:focus, &:active
+                {
+                    border-color: $c_Brand;
+                    box-shadow: 2px 2px 5px rgba($c_Brand, 0.25);
+                }
+
+                &._nResults
+                {
+                    border-color: red;
+                    box-shadow: 2px 2px 5px rgba(red, 0.25);
+                }
+            }
+
+            i
+            {
+                position: absolute;
+                top: 8px; right: 0;
+
+                padding: 5px $structureGap;
+
+                font-size: 20px;
+                color: $c_TextMuted;
+            }
+        }
+
+        .indexItem
+        {   
+            margin: $structureGap * 1.5 0;
+            border: 1px solid $c_BorderFaint;
+            border-left: 3px solid pink;
+
+            border-radius: $borderRadius;
+        }
+
+        .indexItem-body
+        {
+            box-shadow: none;
+            border: none;
+
+            .indexItem-info
+            {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .indexType,
+                .indexLocation
+                {
+                    font-family: Consolas, monospace;
+                    font-size: 85%;
+                }
+
+                .indexType
+                {
+                    color: pink;
+                }
+
+                .indexLocation
+                {
+                    color: $c_TextMuted;
+                    border-left: 1px solid $c_BorderFaint;
+                    
+                    margin-left: $structureGap / 2;
+                    padding-left: $structureGap / 2;
+
+                    &:hover { cursor: help; }
+                }
+
+                .indexName
+                {
+                    flex-basis: 100%;
+
+                    margin-top: 4px;
+
+                    font-size: 115%;
+                    //font-weight: bold;
+                    color: lighten($c_Text, 7%);
+
+                    a
+                    {
+                        text-decoration: none;
+                        &:hover { text-decoration: underline; }
+                    }
+                }
+            }
+
+            .indexItem-actions
+            {
+                .indexItem-action
+                {
+                    width: 50px;
+
+                    color: $c_TextMuted;
+                    text-decoration: none;
+
+                    transition: color $animSpeed;
+
+                    &:hover
+                    {
+                        cursor: pointer;
+                        color: $c_Text;
+                    }
+
+                    i { font-size: 25px; }
+                    span { display: none; }
+
+                    @include layout(small)
+                    {
+                        font-size: 95%;
+
+                        &--details { i { margin-right: $structureGap / 1.5; } }
+                        &--goto { i { margin-left: $structureGap / 1.5; } }
+
+                        i { font-size: 20px; }
+                        span 
+                        {
+                            position: relative;
+                            top: -1px;
+                            display: block;
+                        }
+                    }
+
+                    @include layout(mini)
+                    {
+                        i { margin: 0; }
+                        span { display: none; }
+                    }
+                }
+            }
+        }
+
+        .indexItem-meta
+        {
+            padding: $structureGap;
+            background: $c_BackgroundMuted;
+            border-top: 1px solid $c_BorderFaint;
+
+            .loading
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 130%;
+                color: $c_TextMuted;
+
+                padding: $structureGap 0;
+
+                i
+                {
+                    font-size: 30px;
+                    margin-right: $structureGap;
+                }
+
+                @include layout(mini)
+                {
+                    font-size: 110%;
+                    i { font-size: 20px; }
+                }
+            }
+
+            .metaBlock
+            {
+                &:not(:last-of-type)
+                {
+                    margin-bottom: $structureGap * 1.5;
+                }
+
+                .metaBlock-title
+                {
+                    font-size: 105%;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        @mixin indexItemStyle($type, $color)
+        {
+            .indexItem.indexItem--#{$type}
+            {
+                border-left-color: $color;
+
+                .indexItem-info
+                {
+                    .indexType
+                    {
+                        color: $color;
+                    }
+                }
+
+                .indexItem-actions
+                {
+                    .indexItem-action--details._active
+                    {
+                        color: $color;
+                    }
+                }
+
+                .metaBlock-title
+                {
+                    color: darken($color, 7%);
+                }
+            }
+        }
+
+        @include indexItemStyle('axiom', $c_IndexAxiom);
+        @include indexItemStyle('definition', $c_IndexDefinition);
+        @include indexItemStyle('theorem', $c_IndexTheorem);
+    }
+}

@@ -1,0 +1,28 @@
+@import 'import';
+
+footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    height: 50px;
+
+    border-top: 2px solid $c_BorderFaint;
+
+    a
+    {
+        color: $c_TextMuted;
+        font-size: 105%;
+        font-family: Consolas, monospace;
+        text-decoration: none;
+
+        transition: color $animSpeed;
+
+        &:hover
+        {
+            color: $c_Text;
+        }
+    }
+}

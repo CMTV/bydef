@@ -1,0 +1,21 @@
+[
+    {
+        "id": "CMTV",
+        "name": "Петр Радько",
+        "link": "https://radkopeter.ru",
+        "slogan": "Гениями не рождаются! Ими становятся!",
+        "forumUrl": "https://google.com"
+    },
+
+    {
+        "id": "nnagibin",
+        "name": "Николай Нагибин",
+        "link": "https://vk.com/nagibin2509",
+        "slogan": "Тебе уже двадцать? На старт!"
+    },
+
+    {
+        "id": "anonim",
+        "name": "Аноним Б"
+    }
+]

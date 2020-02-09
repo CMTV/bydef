@@ -1,0 +1,18 @@
+mixin action(name, icon, title, href)
+    a.action(class=`action--${name}`, title=title, href=href)
+        i(class=icon)
+        span= title
+
+section.topBar
+    .contentArea
+
+        .sidebar-switcher
+            i.fas.fa-bars
+
+        .primary
+            include logo
+            a.logotype-text(href=_.url) by<span>def</span>
+
+        .actions
+            +action('donate', 'fas fa-hand-holding-usd', 'Поддержать!', _.url + 'sponsors')
+            +action('forum', 'fas fa-comments', 'Форум', _.links.community)

@@ -1,0 +1,208 @@
+mixin bookStatsItem(name, title, icon, value)
+    .stats-item(class=`stats-item--${name}` title=title)
+        i(class=icon)
+        span= value
+
+mixin bookNavTab(name, title, icon)
+    .book-navItem(
+            class=`book-navItem--${name}`, title=title,
+            v-bind:class=`{ '_active': ${name} }`,
+            v-on:click=`bookTabClick('${name}')`
+        )
+        i(class=icon)
+        span= title
+
+mixin bookNavPane(name)
+    .book-pane(class=`book-pane--${name}`, v-bind:class=`{ '_showing': ${name} }`)
+        block
+
+mixin paragraphTag(name, icon, title)
+    span.tag(class=`tag--${name}`, title=title)
+        i(class=icon)
+
+mixin paragraph(tocItem)
+    toc-article(inline-template)
+        .article.fancyShadow
+            .fancyBlock.article-body
+                .fancyMain.article-info
+                    h2.title
+                        a(href=_.url + `${id}/${tocItem.id}`)
+                            <span class="paragraph-num">§#{tocItem.articleIndex}</span>. #{tocItem.title}
+
+                        if tocItem.isOptional
+                            +paragraphTag('optional', 'fa fa-code-branch fa-flip-vertical', 'Дополнительный параграф. Можно пропустить... Но не стоит!')
+
+                    .description!= tocItem.description
+                
+                .fancyActions.article-actions
+                    a.fancyAction.article-action.article-action--headers(
+                        title="Содержание",
+                        v-bind:class="{ '_active': headersShowing }",
+                        v-on:click="toggleHeaders()"
+                    )
+                        i.fas.fa-list-ul
+                        span Содержание
+                    
+                    a.fancyAction.article-action.article-action--goto(title="Перейти к параграфу", href=_.url + `${id}/${tocItem.id}`)
+                        span Перейти
+                        i.fas.fa-arrow-right
+
+            .article-headers(v-bind:class="{ '_showing': headersShowing }")
+                ol
+                    each header in tocItem.headers
+                        li(class=`level-${header.level}`)
+                            a(href=_.url + `${id}/${tocItem.id}#${header.id}`)= header.title
+
+//-
+//- Contributor
+//-
+
+mixin contributorStatsItem(name, value, icon, title)
+    .fancyAction.contributor-statsItem(class=`contributor-statsItem--${name}`, title=title)
+        i(class=icon)
+        span= value
+
+mixin contributorTag(name, icon, title, href)
+    a.tag(class=`tag--${name}`, href=href, title=title)
+        i(class=icon)
+
+mixin contributor(contributor)
+    .fancyBlock.contributor
+        a.fancyFigure.contributor-avatar(href=contributor.link, target="_blank")
+            if contributor.hasAvatar
+                img(src=_.url + `graphics/contributors/${contributor.id}.png`)
+            else
+                i.fas.fa-user-graduate
+        
+        .fancyMain.contributor-info
+            .name
+                a(href=contributor.link, target="_blank")= contributor.name
+                
+                if contributor.forumUrl
+                    +contributorTag('forumUrl', 'far fa-comment-dots', 'Профиль на форуме', contributor.forumUrl)
+
+            if contributor.slogan
+                span.slogan= contributor.slogan
+
+        a.fancyActions.contributor-stats(href=_.url + `contributors/${contributor.id}`)
+            if contributor.adds
+                +contributorStatsItem('adds', contributor.adds, 'far fa-file-alt', 'Параграфов написано')
+            if contributor.edits
+                +contributorStatsItem('edits', contributor.edits, 'fas fa-edit', 'Правок внесено')
+                
+
+//-
+//- Index
+//-
+
+mixin indexItem(indexItem)
+    index-item(
+            inline-template,
+            data-id=indexItem.id,
+            data-name=indexItem.name
+        )
+        .indexItem.fancyShadow(class=`indexItem--${indexItem.type}`, v-show="showing")
+            .fancyBlock.indexItem-body
+
+                .fancyMain.indexItem-info
+                    .indexType= indexItem.label
+                    .indexLocation(title="Номер параграфа и элемента индекса")= indexItem.numId
+                    .indexName
+                        a(href=_.url + indexItem.urlPath)= indexItem.name
+
+                .fancyActions.indexItem-actions
+                    a.fancyAction.indexItem-action.indexItem-action--details(
+                        title="Детали",
+                        @click="toggleMeta()",
+                        :class="{ '_active': metaShowing }"
+                    )
+                        i.fas.fa-info-circle
+                        span Детали
+
+                    a.fancyAction.indexItem-action.indexItem-action--goto(title="Перейти", href=_.url + indexItem.urlPath)
+                        span Перейти
+                        i.fas.fa-arrow-right
+            
+            index-meta(
+                inline-template,
+                ref="meta",
+                v-show="metaShowing",
+                data-meta=_.url + indexItem.metaPath
+            )
+                .indexItem-meta
+                    .loading(v-show="isLoading")
+                        i.fas.fa-sync.fa-spin
+                        div Загрузка данных...
+
+                    .metaData(v-show="!isLoading", v-html="metaContent")
+
+doctype html
+html(lang="ru")
+
+    head
+        include includes/head/head
+        link(rel="stylesheet", href=_.url + 'styles/book.min.css')
+        script(src=_.url + 'scripts/book.min.js')
+
+    body.page-book
+        .notFooter
+
+            section.header-strong
+                include includes/topBar
+
+                .contentArea.padding.strong-content
+
+                    .book-icon!= icon
+
+                    h1.book-title= title
+
+                    .book-stats
+                        +bookStatsItem('articles', 'Параграфы', 'fas fa-list', (toc.filter(item => !item.isCategory)).length)
+                        +bookStatsItem('index', 'Определения и теоремы', 'fas fa-shapes', index.length)
+                        +bookStatsItem('tasks', 'Задачи', 'fas fa-check-square', tasksNum)
+
+                    p.description!= description
+
+                    .strong-actions
+                        a.button.button--learn(href=_.url + `${id}/${firstArticleId}`)
+                            i.fas.fa-graduation-cap
+                            span Учиться!
+                
+            section.book-info
+                .book-nav
+                    +bookNavTab('toc', 'Оглавление', 'fas fa-list')
+                    +bookNavTab('index', 'Индекс', 'fas fa-shapes')
+                    +bookNavTab('contributors', 'Вклад', 'fas fa-users')
+
+                .contentArea.padding.book-panes
+                    +bookNavPane('toc')
+                        each tocItem in toc
+                            if tocItem.isCategory
+                                h2.category= tocItem.title
+                            else
+                                +paragraph(tocItem)
+
+                    +bookNavPane('index')
+                        
+                        index-container(inline-template, :data-total=index.length)
+                            .index-container                             
+                                .search-index
+                                    input.fancyShadow(
+                                        placeholder="Поиск по индексу...",
+                                        v-model.trim="search",
+                                        v-bind:class="{ '_nEmpty': search, '_nResults': !showingNum }"
+                                    )
+                                    i.fas.fa-search
+
+                                .noResults(v-show="!showingNum")
+                                    i.far.fa-frown-open
+                                    div Ничего не нашлось!
+
+                                each indexItem in index
+                                    +indexItem(indexItem)
+
+                    +bookNavPane('contributors')
+                        each contributor in contributors
+                            +contributor(contributor)
+
+        include includes/footer/footer

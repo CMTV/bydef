@@ -1,0 +1,204 @@
+@import 'import';
+
+$c_HeaderStrongBg: darken($c_Brand, 20%);
+
+.header-strong
+{
+    padding-bottom: 80px;
+    color: white;
+
+    background-color: $c_HeaderStrongBg;
+    background: 
+        linear-gradient(rgba($c_HeaderStrongBg, 0.6), rgba($c_HeaderStrongBg, 0.6)),
+        url("graphics/strong-header-bg.svg"),
+        radial-gradient($c_HeaderStrongBg, darken($c_HeaderStrongBg, 7%));
+
+    //
+    // Strong content
+    //
+
+    .strong-content
+    {
+        margin-top: 60px;
+        text-shadow: 0 0 15px darken($c_HeaderStrongBg, 10%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-size: 130%;
+        
+        @include layout(small)
+        {
+            font-size: 110%;
+        }
+
+        h1, h2, h3, h4, h5, h6, p
+        {
+            text-align: center;
+            max-width: 610px;
+        }
+
+        h1, h2, h3, h4, h5, h6
+        {
+            font-family: Yandex;
+            margin-bottom: $structureGap;
+        }
+
+        h1
+        {
+            font-size: 200%;
+        }
+
+        p
+        {
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+
+    //
+    // Strong actions
+    // 
+
+    .strong-content .strong-actions
+    {
+        margin-top: $structureGap * 2;
+        text-shadow: none;
+
+        .button
+        {
+            position: relative;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Yandex;
+            font-size: 90%;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            padding: 20px 30px;
+
+            border-radius: $borderRadius;
+            box-shadow: 0 0 10px darken($c_HeaderStrongBg, 10%);
+
+            transition: border-color $animSpeed;
+
+            &::before
+            {
+                content: "";
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+            }
+
+            &:hover
+            {
+                i
+                {
+                    transform: scale(1.1);
+                }
+            }
+
+            i
+            {
+                position: relative;
+                font-size: 130%;
+                margin-right: $structureGap;
+
+                transition: transform $animSpeed;
+            }
+
+            span
+            {
+                position: relative;
+                top: 1px;
+            }
+
+            @mixin buttonStyle($class, $color)
+            {
+                &--#{$class}
+                {
+                    background: linear-gradient($color, darken($color, 5%));
+                    border: 1px solid lighten($color, 5%);
+
+                    &::before
+                    {
+                        background: linear-gradient(135deg, transparent 33%, mix($color, white, 95%), transparent 68%);
+                        background-size: 200% 200%;
+
+                        animation: StrongButtonBlink 4s ease infinite;
+                    }
+
+                    &:hover
+                    {
+                        border-color: lighten($color, 20%);
+
+                        &::before
+                        {
+                            animation-duration: 1.25s;
+                        }
+                    }
+                }
+            }
+
+            @keyframes StrongButtonBlink {
+                0%{background-position:0% 51%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 51%}
+            }
+
+            // Donate
+            @include buttonStyle(donate, rgb(228, 87, 35));
+
+            // Learn
+            @include buttonStyle(learn, rgb(16, 175, 16));
+        }
+    }
+
+    // 
+    // Top bar
+    //
+
+    .topBar
+    {
+        .logotype svg
+        {
+            fill: white;
+        }
+
+        .contentArea .actions
+        {
+            .action
+            {
+                &:hover
+                {
+                    text-decoration: underline;
+                }
+                
+                @include layout(stretch)
+                {
+                    padding: $structureGap / 1.25;
+                    margin-right: $structureGap;
+
+                    border: 2px dashed white;
+                    border-radius: 50%;
+
+                    &:hover
+                    {
+                        border-style: solid;
+                    }
+
+                    i { font-size: 120%; }
+                }
+
+                @include layout(mini)
+                {
+                    i { font-size: 110%; }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.fancyShadow
+{
+    box-shadow: 2px 2px 5px #00000017;
+}
+
+.fancyBlock
+{
+    display: flex;
+    flex-wrap: wrap;
+
+    border: 1px solid $c_BorderFaint;
+    border-radius: $borderRadius;
+
+    box-shadow: 2px 2px 5px #00000017;
+
+    .fancyFigure
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: $structureGap;
+        padding-right: 0;
+
+        @include layout(mini)
+        {
+            flex: 1;
+            padding-bottom: 0;
+            padding-right: $structureGap;
+        }
+    }
+
+    .fancyMain
+    {
+        flex: 1;
+        padding: $structureGap;
+
+        @include layout(mini)
+        {
+            flex-basis: 100%;
+        }
+    }
+
+    .fancyActions, .fancyAction
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fancyActions
+    {
+        flex-wrap: wrap;
+
+        .fancyAction
+        {
+            padding: $structureGap 45px;
+            border-left: 1px solid $c_BorderFaint;
+        }
+
+        @include layout(small)
+        {
+            flex-basis: 100%;
+            border-top: 1px solid $c_BorderFaint;
+
+            .fancyAction
+            {
+                flex: 1;
+                padding: $structureGap !important;
+
+                &:first-of-type { border-left: none; }
+            }
+        }
+    }
+}

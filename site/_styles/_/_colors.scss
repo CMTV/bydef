@@ -1,0 +1,35 @@
+//
+// Brand colors
+//
+
+$c_Brand: #009ff4;
+
+//
+// Text colors
+//
+
+$c_Text: #282828;
+$c_TextMuted: lighten($c_Text, 20%);
+$c_TextBrand: darken($c_Brand, 10%);
+
+//
+// Border colors
+//
+
+$c_Border: #c8c8c8;
+$c_BorderFaint: lighten($c_Border, 10%);
+$c_BorderStrong: darken($c_Border, 15%);
+
+//
+// Background colors
+//
+
+$c_BackgroundMuted: rgb(243, 243, 243);
+
+//
+// Index colors
+//
+
+$c_IndexAxiom: rgb(0, 207, 190);
+$c_IndexDefinition: green;
+$c_IndexTheorem: rgb(241, 89, 0);

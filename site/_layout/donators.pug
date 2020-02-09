@@ -1,0 +1,56 @@
+mixin donatorsGrid(tier, title, donators)
+    section.donators(class=`donators--tier${tier}`)
+        h2= title
+        .donators-grid
+
+            each donator in donators
+                .donator
+                    a.avatar(href=donator.link, target="_blank")
+                        if donator.hasAvatar
+                            img(src=_.url + `graphics/donators/${donator.id}.png`)
+                        else
+                            i.fas.fa-user
+
+                    .info
+                        a.name(href=donator.link, target="_blank")= donator.name
+
+                        if donator.slogan
+                            span.slogan= donator.slogan
+
+doctype html
+html(lang="ru")
+
+    head
+        include includes/head/head
+        link(rel="stylesheet", href=_.url + 'styles/donators.min.css')
+
+    body.page-donators
+        .notFooter
+
+            section.header-strong
+                include includes/topBar
+
+                .contentArea.padding.strong-content
+                    h1 Спонсоры
+                    p Мы помогаем вам.<br>И вы можете помочь нам!
+
+                    .strong-actions
+                        a.button.button--donate(href=_.links.donate, target="_blank")
+                            i.fas.fa-hand-holding-usd
+                            span Поддержать!
+
+            if (donators.t1 || donators.t2 || donators.t3)
+                .contentArea.padding
+                    if donators.t3
+                        +donatorsGrid(3, 'Меценаты', donators.t3)
+                    if donators.t2
+                        +donatorsGrid(2, 'Соратники', donators.t2)
+                    if donators.t1
+                        +donatorsGrid(1, 'Помощники', donators.t1)
+            else
+                section.contentArea.padding.no-sponsors
+                    i.far.fa-smile-wink
+                    div Здесь расположен список спонсоров.<br>
+                        a(href=_.links.donate, target="_blank") Станьте первым!
+
+        include includes/footer/footer

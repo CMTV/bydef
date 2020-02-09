@@ -1,0 +1,27 @@
+@import 'import';
+
+.topBar
+{
+    .logotype
+    {
+        width: 45px;
+        margin-right: $structureGap;
+
+        @include layout(stretch)
+        {
+            margin-left: $structureGap;
+        }
+    }
+}
+
+.logotype-text
+{
+    font-family: Yandex;
+    font-size: 27px;
+    text-decoration: none;
+
+    span
+    {
+        font-weight: bold;
+    }
+}

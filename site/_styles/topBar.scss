@@ -1,0 +1,72 @@
+@import 'import';
+
+.topBar
+{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+
+    .contentArea
+    {
+        display: flex;
+        align-items: center;
+        line-height: 0;
+
+        .sidebar-switcher
+        {
+            padding: $structureGap;
+
+            &:hover { cursor: pointer; }
+            
+            i { font-size: 150%; }
+        }
+
+        .primary
+        {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .actions
+        {
+            display: flex;
+            align-items: center;
+
+            .action
+            {
+                padding: $structureGap;
+                text-decoration: none;
+                
+                i
+                {
+                    font-size: 150%;
+                    margin-right: $structureGap / 2;
+                }
+
+                span
+                {
+                    font-size: 120%;
+                }
+
+                &--donate
+                {
+                    color: rgb(255, 212, 70);
+                    border-color: rgb(255, 212, 70) !important;
+                }
+
+                @include layout-full
+                {
+                    &:last-of-type { margin-right: -$structureGap; }
+                }
+
+                @include layout(stretch)
+                {
+                    i { margin: 0; }
+                    span { display: none; }
+                }
+            }
+        }
+    }
+}
