@@ -1,0 +1,53 @@
+{
+    "_": {
+        "devMode": true,
+        "url": "http://localhost:8080/",
+        "links": {
+            "donate": "https://boosty.to/bydef",
+            "community": "",
+            "github": ""
+        }
+    },
+    "head": {
+        "title": "Петр Радько - ByDef",
+        "description": "Вклад пользователя \"Петр Радько\" в учебники ByDef.",
+        "canonicalUrl": "http://localhost:8080/contributors/CMTV"
+    },
+    "contributor": {
+        "id": "CMTV",
+        "name": "Петр Радько",
+        "link": "https://radkopeter.ru",
+        "slogan": "Гениями не рождаются! Ими становятся!",
+        "forumUrl": "https://google.com",
+        "hasAvatar": true,
+        "adds": 1,
+        "edits": 1,
+        "place": 1,
+        "contributions": [
+            {
+                "type": "add",
+                "book": {
+                    "id": "test1",
+                    "title": "Тестовый учебник 1"
+                },
+                "article": {
+                    "id": "testArticle1",
+                    "paragraph": 1,
+                    "title": "Первый параграф!!"
+                }
+            },
+            {
+                "type": "edit",
+                "book": {
+                    "id": "test1",
+                    "title": "Тестовый учебник 1"
+                },
+                "article": {
+                    "id": "testArticle2",
+                    "paragraph": 2,
+                    "title": "Второй парагрффак Кек!"
+                }
+            }
+        ]
+    }
+}

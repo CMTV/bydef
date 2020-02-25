@@ -1,0 +1,37 @@
+{
+    "_": {
+        "devMode": true,
+        "url": "http://localhost:8080/",
+        "links": {
+            "donate": "https://boosty.to/bydef",
+            "community": "",
+            "github": ""
+        }
+    },
+    "head": {
+        "title": "Вклад - ByDef",
+        "description": "Прекрасные люди, которые пишут или редактируют параграфы учебников ByDef.",
+        "canonicalUrl": "http://localhost:8080/contributors"
+    },
+    "contributors": [
+        {
+            "id": "CMTV",
+            "name": "Петр Радько",
+            "link": "https://radkopeter.ru",
+            "slogan": "Гениями не рождаются! Ими становятся!",
+            "forumUrl": "https://google.com",
+            "hasAvatar": true,
+            "adds": 1,
+            "edits": 1
+        },
+        {
+            "id": "nnagibin",
+            "name": "Николай Нагибин",
+            "link": "https://vk.com/nagibin2509",
+            "slogan": "Тебе уже двадцать? На старт!",
+            "hasAvatar": false,
+            "adds": 1,
+            "edits": 0
+        }
+    ]
+}

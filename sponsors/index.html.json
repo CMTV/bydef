@@ -1,0 +1,96 @@
+{
+    "_": {
+        "devMode": true,
+        "url": "http://localhost:8080/",
+        "links": {
+            "donate": "https://boosty.to/bydef",
+            "community": "",
+            "github": ""
+        }
+    },
+    "head": {
+        "title": "Спонсоры - ByDef",
+        "description": "Прекрасные люди, которые материально поддерживают проект!",
+        "canonicalUrl": "http://localhost:8080/sponsors/"
+    },
+    "donators": {
+        "t1": [
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "hasAvatar": true
+            },
+            {
+                "id": "nagibin",
+                "name": "Никоглай Нагибин",
+                "slogan": "Тебе уже двадцать? На старт!",
+                "hasAvatar": false
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "link": "https://google.com",
+                "hasAvatar": true
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "slogan": "Гениями не рождаются. Ими становятся!",
+                "link": "https://google.com",
+                "hasAvatar": true
+            }
+        ],
+        "t2": [
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "hasAvatar": true
+            },
+            {
+                "id": "nagibin",
+                "name": "Никоглай Нагибин",
+                "slogan": "Тебе уже двадцать? На старт!",
+                "hasAvatar": false
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "link": "https://google.com",
+                "hasAvatar": true
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "slogan": "Гениями не рождаются. Ими становятся!",
+                "link": "https://google.com",
+                "hasAvatar": true
+            }
+        ],
+        "t3": [
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "hasAvatar": true
+            },
+            {
+                "id": "nagibin",
+                "name": "Никоглай Нагибин",
+                "slogan": "Тебе уже двадцать? На старт!",
+                "hasAvatar": false
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "link": "https://google.com",
+                "hasAvatar": true
+            },
+            {
+                "id": "CMTV",
+                "name": "Петр Радько",
+                "slogan": "Гениями не рождаются. Ими становятся!",
+                "link": "https://google.com",
+                "hasAvatar": true
+            }
+        ]
+    }
+}

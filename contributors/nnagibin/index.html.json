@@ -1,0 +1,40 @@
+{
+    "_": {
+        "devMode": true,
+        "url": "http://localhost:8080/",
+        "links": {
+            "donate": "https://boosty.to/bydef",
+            "community": "",
+            "github": ""
+        }
+    },
+    "head": {
+        "title": "Николай Нагибин - ByDef",
+        "description": "Вклад пользователя \"Николай Нагибин\" в учебники ByDef.",
+        "canonicalUrl": "http://localhost:8080/contributors/nnagibin"
+    },
+    "contributor": {
+        "id": "nnagibin",
+        "name": "Николай Нагибин",
+        "link": "https://vk.com/nagibin2509",
+        "slogan": "Тебе уже двадцать? На старт!",
+        "hasAvatar": false,
+        "adds": 1,
+        "edits": 0,
+        "place": 2,
+        "contributions": [
+            {
+                "type": "add",
+                "book": {
+                    "id": "test1",
+                    "title": "Тестовый учебник 1"
+                },
+                "article": {
+                    "id": "testArticle2",
+                    "paragraph": 2,
+                    "title": "Второй парагрффак Кек!"
+                }
+            }
+        ]
+    }
+}
