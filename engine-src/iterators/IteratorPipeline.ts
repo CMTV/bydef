@@ -2,8 +2,12 @@ import { Iterator, IteratorContext, StepMeta } from "./Iterator";
 import { BookIterator } from "./BookIterator";
 import { IndexIterator } from "./IndexIterator";
 import { ArticleIterator } from "./ArticleIterator";
+import { BookTocIterator } from "./pre/BookTocIterator";
+import { BookStatsIterator } from "./pre/BookStatsIterator";
+import { ContributorStatsIterator } from "./pre/ContributorStatsIterator";
+import { ContributorIterator } from "./pre/ContributorIterator";
 
-class IteratorPipeline
+export class IteratorPipeline
 {
     protected iterators: Iterator[];
 
@@ -46,8 +50,21 @@ class IteratorPipeline
     }
 }
 
-export default new IteratorPipeline(
-    new IndexIterator,
-    new BookIterator,
-    new ArticleIterator
-);
+export function PreIPipeline(): IteratorPipeline
+{
+    return new IteratorPipeline(
+        new BookTocIterator,
+        new BookStatsIterator,
+        new ContributorStatsIterator,
+        new ContributorIterator
+    );
+}
+
+export function BuildIPipeline(): IteratorPipeline
+{
+    return new IteratorPipeline(
+        new IndexIterator,
+        new BookIterator,
+        new ArticleIterator
+    );
+}

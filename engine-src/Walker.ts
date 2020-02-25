@@ -1,13 +1,20 @@
 import { UtilIO } from "./Util";
-import IPipeline from './iterators/IteratorPipeline';
 import Listener from './WalkerListener';
 import { BookStepData, IteratorContext, StepMeta, ArticleStepData, TaskStepData } from "./iterators/Iterator";
 import { MdHelper } from "./MdHelper";
 import { basename } from 'path';
 import { existsSync, readdirSync, statSync } from "fs";
+import { BuildIPipeline, IteratorPipeline } from "./iterators/IteratorPipeline";
 
 export class Walker
 {
+    pipeline: IteratorPipeline;
+
+    constructor(pipeline: IteratorPipeline = BuildIPipeline())
+    {
+        this.pipeline = pipeline;
+    }
+
     walkAll() 
     {
         let bookIds = readdirSync('books').filter((file) => {
@@ -23,13 +30,14 @@ export class Walker
         {
             this.walk(bookId, {
                 index: bookIndex,
+                total: bookIds.length,
                 isFirst: bookIndex === 0,
                 isLast: bookIndex + 1 === bookIds.length
             });
         });
     }
 
-    protected walk(bookId: string, bookStepMeta: StepMeta = { index: 0, isFirst: true, isLast: true })
+    protected walk(bookId: string, bookStepMeta: StepMeta = { index: 0, total: 1, isFirst: true, isLast: true })
     {
         let bookConfig: BookConfig = JSON.parse(UtilIO.readFile(`books/${bookId}/config.json`));
 
@@ -46,7 +54,7 @@ export class Walker
         }
         
         Listener.bookStep(bookStepData);
-        IPipeline.step(IteratorContext.Book, bookStepData, bookStepMeta);
+        this.pipeline.step(IteratorContext.Book, bookStepData, bookStepMeta);
 
         // \\
 
@@ -58,8 +66,9 @@ export class Walker
             // BOOK TOC CUSTOM STEP
             //
 
-            IPipeline.customStep(IteratorContext.BookToc, tocItem, bookStepData, {
+            this.pipeline.customStep(IteratorContext.BookToc, tocItem, bookStepData, {
                 index: bookTocIndex,
+                total: bookConfig.toc.length,
                 isFirst: bookTocIndex === 0,
                 isLast: bookTocIndex + 1 === bookConfig.toc.length
             });
@@ -83,11 +92,13 @@ export class Walker
                 }
             });
 
+            let articlesTotal = (bookConfig.toc.filter(item => typeof item === 'string')).length;
             Listener.articleStep(articleStepData);
-            IPipeline.step(IteratorContext.Article, articleStepData, {
+            this.pipeline.step(IteratorContext.Article, articleStepData, {
                 index: articleIndex,
+                total: articlesTotal,
                 isFirst: articleIndex === 0,
-                isLast: articleIndex + 1 === (bookConfig.toc.filter(item => typeof item === 'string')).length
+                isLast: articleIndex + 1 === articlesTotal
             });
 
             articleIndex++;
@@ -116,8 +127,9 @@ export class Walker
                     });
 
                     Listener.taskStep(taskStepData);
-                    IPipeline.step(IteratorContext.Task, taskStepData, {
+                    this.pipeline.step(IteratorContext.Task, taskStepData, {
                         index: taskIndex,
+                        total: tasksFiles.length,
                         isFirst: taskIndex === 0,
                         isLast: taskIndex + 1 === tasksFiles.length
                     });
@@ -127,6 +139,6 @@ export class Walker
             }
         });
 
-        IPipeline.finally();
+        this.pipeline.finally();
     }
 }

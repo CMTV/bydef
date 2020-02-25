@@ -1,0 +1,306 @@
+@import '../import';
+
+.page-index
+{
+    .header-strong
+    {
+        padding-bottom: 50px;
+
+        .strong-content
+        {
+            margin-top: 0;
+            padding-top: 140px;
+
+            @include layout(small)
+            {
+                padding-top: $structureGap * 2;
+            }
+
+            .logotype-container
+            {
+                display: flex;
+                align-items: center;
+
+                .logotype
+                {
+                    width: 85px;
+                    height: 85px;
+    
+                    svg { fill: white; }
+                }
+
+                .logotype-text
+                {
+                    margin-left: $structureGap * 2;
+                    font-size: 45px;
+                }
+
+                @include layout(small)
+                {
+                    .logotype
+                    {
+                        width: 70px;
+                        height: 70px;
+                    }
+
+                    .logotype-text
+                    {
+                        margin-left: $structureGap;
+                        font-size: 40px;
+                    }
+                }
+            }
+
+            .site-description
+            {
+                margin-top: $structureGap * 1.25;
+            }
+
+            nav
+            {
+                margin-top: $structureGap * 1.75;
+                display: flex;
+
+                .nav-item
+                {
+                    text-decoration: none;
+
+                    &--donate
+                    {
+                        color: #ffd446;
+                        border-color: #ffd446 !important;
+                    }
+
+                    &:hover { text-decoration: underline; }
+                    &:not(:first-of-type) { margin-left: $structureGap * 2; }
+
+                    span
+                    {
+                        margin-left: $structureGap / 2;
+                    }
+
+                    @include layout(small)
+                    {
+                        width: 55px; height: 55px;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        border: 2px dashed white;
+                        border-radius: 50%;
+
+                        &:hover
+                        {
+                            border-style: solid;
+                            text-decoration: none;
+                        }
+
+                        i { font-size: 23px; }
+
+                        span { display: none; }
+                    }
+                }
+            }
+        }
+    }
+
+    .toc
+    {
+        margin-top: $structureGap * 2.5;
+        
+        @include layout-full
+        {
+            width: 800px;
+            margin: $structureGap * 2.5 auto 0;
+        }
+
+        .category
+        {
+            padding-bottom: 10px;
+            border-bottom: 1px solid $c_Border;
+            margin-top: $structureGap * 3;
+
+            &[title]:hover { cursor: help; }
+
+            @include layout(stretch)
+            {
+                padding-left: $structureGap;
+            }
+
+            @include layout(small)
+            {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+        .book
+        {
+            margin: $structureGap * 2 0;
+
+            .goto-button
+            {
+                float: right;
+                position: relative;
+                top: 6px;
+                right: 6px;
+
+                font-size: 90%;
+                color: $c_TextMuted;
+                text-decoration: none;
+
+                padding: $structureGap / 2 $structureGap;
+
+                border: 1px solid $c_BorderFaint;
+                border-radius: $borderRadius;
+
+                transition: color $animSpeed, border-color $animSpeed;
+                
+                @include layout(small)
+                {
+                    display: none;
+                }
+
+                &:hover
+                {
+                    color: $c_Text;
+                    border-color: $c_Border;
+                }
+
+                span
+                {
+                    margin-right: $structureGap / 2;
+                }
+            }
+
+            .book-info
+            {
+                display: flex;
+                margin-bottom: $structureGap;
+
+                @include layout(mini)
+                {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .book-icon
+                {
+                    display: block;
+                    width: 55px; height: 55px;
+
+                    @include layout(mini)
+                    {
+                        margin-bottom: $structureGap / 2;
+                    }
+                }
+
+                .titleStats
+                {
+                    margin-left: $structureGap;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    @include layout(mini)
+                    {
+                        margin-left: 0;
+                    }
+
+                    .title
+                    {
+                        font-size: 120%;
+                        font-weight: bold;
+                        text-decoration: none;
+
+                        margin-bottom: 5px;
+
+                        @include layout(mini) { margin-bottom: 0; }
+
+                        &:hover { text-decoration: underline; }
+                    }
+
+                    .stats
+                    {
+                        display: flex;
+
+                        @include layout(mini)
+                        {
+                            margin-top: $structureGap / 2;
+                            justify-content: center;
+                        }
+
+                        .stats-item
+                        {
+                            cursor: help;
+                            font-size: 90%;
+                            color: $c_TextMuted;
+
+                            &:not(:first-of-type)
+                            {
+                                margin-left: $structureGap;
+                            }
+
+                            i { margin-right: 5px; }
+                        }
+                    }
+                }
+            }
+
+            .book-description
+            {
+                @include layout(small)
+                {
+                    text-align: justify;
+                    font-size: 90%;
+                }
+            }
+
+            .book-actions
+            {
+                .book-action--goto
+                {
+                    display: none;
+
+                    color: $c_TextMuted;
+                    text-decoration: none;
+
+                    transition: color $animSpeed;
+
+                    &:hover { color: $c_Text; }
+
+                    span
+                    {
+                        font-size: 110%;
+                        display: none;
+
+                        position: relative;
+                        top: -1px;
+
+                        margin-right: $structureGap;
+                    }
+
+                    i { font-size: 25px; }
+
+                    @include layout(small)
+                    {
+                        display: flex;
+
+                        span { display: block; }
+                    }
+                }
+            }
+        }
+    }
+
+    footer
+    {
+        margin-top: 80px;
+
+        @include layout(mini)
+        {
+            margin-top: $structureGap;
+        }
+    }
+}

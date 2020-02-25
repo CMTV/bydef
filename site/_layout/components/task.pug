@@ -1,0 +1,46 @@
+mixin metaItem(name, icon, label, title, href)
+    a.task-metaItem(class=`task-metaItem--${name}`, title=title, href=href, target="_blank")
+        i(class=icon)
+        span=label
+
+task(inline-template)
+    .task
+        .anchor(id=`task-${index}`)
+        
+        h3.task-title
+            span=(title || `Задача ${index}`)
+            a.anchor-link(href=`#task-${index}`, title="Ссылка на эту задачу")
+                i.fas.fa-link
+        
+        .task-meta
+            +metaItem(`difficulty-${difficulty.name}`, difficulty.icon, difficulty.label, 'Сложность')
+            
+            if (src)
+                +metaItem('source', 'fas fa-external-link-alt', src.title, 'Источник', src.link)
+        
+        .task-content!=content
+
+        .task-actions
+            if answer
+                .task-action.task-action--answer(:class="{ '_active' : showing.answer }", @click="showAnswer()")
+                    i.fas.fa-check
+                    span Ответ
+
+            if solution
+                .task-action.task-action--solution(:class="{ '_active' : showing.solution }", @click="showSolution()")
+                    i.far.fa-file-alt
+                    span Решение
+            
+            if hint
+                .task-action.task-action--hint(:class="{ '_active' : showing.hint }", @click="showHint()")
+                    i.fas.fa-lightbulb
+                    span Указание
+
+        if answer
+            .task-answer(v-show="showing.answer")!=answer
+
+        if solution
+            .task-solution(v-show="showing.solution")!=solution
+        
+        if hint
+            .task-hint(v-show="showing.hint")!=hint

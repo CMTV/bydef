@@ -1,0 +1,178 @@
+@import '../import';
+
+.page-contributor
+{
+    .header-strong
+    {
+        .avatar
+        {
+            margin-bottom: $structureGap / 1.5;
+
+            img, i
+            {
+                display: block;
+                width: 75px; height: 75px;
+                font-size: 75px;
+                border-radius: $borderRadius;
+            }
+        }
+
+        .name
+        {
+            font-size: 170%;
+            margin-bottom: $structureGap / 1.5;
+        }
+
+        .stats
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: $structureGap * 2;
+
+            .stats-item
+            {
+                cursor: help;
+                &:not(:last-of-type) { margin-right: $structureGap * 2; }
+                
+                i { margin-right: 10px; }
+            }
+        }
+
+        nav
+        {
+            display: flex;
+
+            .nav-item
+            {
+                margin-top: $structureGap * 1.75;
+                width: 55px; height: 55px;
+
+                text-decoration: none;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border: 2px dashed white;
+                border-radius: 50%;
+
+                &:hover { border-style: solid; }
+                &:not(:first-of-type) { margin-left: $structureGap * 2; }
+            }
+        }
+    }
+
+    .contributions
+    {
+        margin-top: $structureGap * 2.5;
+
+        @include layout-full
+        {
+            width: 800px;
+            margin: $structureGap * 2.5 auto 0;
+        }
+
+        .contribution
+        {
+            margin: $structureGap 0;
+
+            position: relative;
+            border-left-width: 3px;
+
+            &.add { border-left-color: $c_Brand; }
+            
+            $typeSize: 40px;
+
+            @include layout(stretch)
+            {
+                margin-left: $typeSize / 2;
+            }
+
+            .contribution-type
+            {
+                position: absolute;
+                left: #{-$typeSize/2};
+                top: calc(50% - #{$typeSize/2});
+
+                cursor: help;
+
+                width: $typeSize; height: $typeSize;
+                background: $c_BorderFaint;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border-radius: 50%;
+
+                &--add
+                {
+                    color: white;
+                    background-color: $c_Brand;
+                }
+            }
+
+            .contribution-body
+            {
+                display: flex;
+                flex-direction: column;
+
+                margin-left: $typeSize / 2;
+
+                .book, .article
+                {
+                    text-decoration: none;
+                    &:hover { text-decoration: underline; }
+                }
+
+                .book
+                {
+                    color: $c_TextMuted;
+                    margin-bottom: 5px;
+                }
+
+                .article
+                {
+                    font-size: 115%;
+                }
+
+                @include layout(small)
+                {
+                    .book       { font-size: 90%; }
+                    .article    { font-size: 95%; }
+                }
+            }
+
+            .contribution-actions
+            {
+                .contribution-goto
+                {
+                    color: $c_TextMuted;
+                    text-decoration: none;
+
+                    transition: color $animSpeed;
+
+                    &:hover { color: $c_Text; }
+
+                    i { font-size: 25px; }
+
+                    @include layout(small)
+                    {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    footer
+    {
+        margin-top: 80px;
+
+        @include layout(mini)
+        {
+            margin-top: $structureGap * 2;
+        }
+    }
+}

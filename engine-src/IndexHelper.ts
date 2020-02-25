@@ -26,7 +26,7 @@ export interface IndexItemObj
     obj: any;
 }
 
-interface IndexItem
+export interface IndexItem
 {
     type: IndexType;
     id?: string;

@@ -1,3 +1,17 @@
+include includes/mixins
+
+mixin tocLink(name, icon, title, href)
+    a.tocButton(
+        class=`tocButton--${name}`,
+        title=title,
+        href=href
+    )
+        i(class=icon)
+
+mixin contributor(contributor, isAuthor = false)
+    .contributor(class=isAuthor ? 'contributor--author' : '')
+        +contributorAvatar(contributor)
+
 doctype html
 html(lang="ru")
 
@@ -7,4 +21,86 @@ html(lang="ru")
         script(src=_.url + 'scripts/article.min.js')
 
     body.page-article
-        p Тест
+        header
+            .contentArea
+
+                #aside-switcher.headerNavItem(title="Навигация")
+                    i.fas.fa-bars
+
+                .headerInfo
+                    include includes/logo
+                    .sep
+                    a.bookIcon(href=_.url + book.id, title="Страница учебника")!= book.icon
+                    
+                    a.bookTitle(href=_.url + book.id, title="Страница учебника")= book.title
+
+                .headerNavGroup
+                    a.headerNavItem.headerNavItem--donate(href=_.url + 'sponsors', title="Поддержать!")
+                        i.fas.fa-hand-holding-usd
+                    
+                    a.headerNavItem.headerNavItem--forum(href=_.links.community, target="_blank", title="Сообщество")
+                        i.fas.fa-comments
+
+        .contentArea
+
+            #aside
+                transition(name="aside-overlay")
+                    .aside-overlay(v-if="showing", @click="toggleAside()")
+                
+                aside(:class="{ '_showing': showing }")
+                    .aside-content
+                        progress(max=total, value=current, title=`Параграф ${current} из ${total}`)
+
+                        .tocLinks
+                            +tocLink('donate', 'fas fa-hand-holding-usd', 'Поддержать!', _.url + 'sponsors')
+                            +tocLink('forum', 'fas fa-comments', 'Сообщество', _.links.community)
+                            +tocLink('github', 'fab fa-github', 'GitHub репозиторий', _.links.github)
+
+                        .tocNav
+                            a.tocButton.tocButton--previous(
+                                title="Предыдущий параграф",
+                                href=previous ? _.url + `${book.id}/${previous.id}` : null,
+                                class=!previous ? 'disabled' : ''
+                            )
+                                i.fas.fa-arrow-left
+
+                            .tocButton.tocButton--switchToc(@click="toggleToc()")
+                                i.fas.fa-sitemap
+                                span {{ tocButtonTextOpposite }}
+
+                            a.tocButton.tocButton--next(
+                                title="Следующий параграф",
+                                href=next ? _.url + `${book.id}/${next.id}` : null,
+                                class=!next ? 'disabled' : ''
+                            )
+                                i.fas.fa-arrow-right
+                        
+                        .toc
+                            transition(name="toc--article")
+                                .toc--article(v-show="tocButtonTextOpposite == 'Содержание'")
+                                    ol
+                                        each header, i in headers
+                                            li(class=`level-${header.level} header`, data-id=header.id, data-index=i)
+                                                a(href=`#${header.id}`)= header.title
+
+                            transition(name="toc--book")
+                                .toc--book(v-show="tocButtonTextOpposite == 'Оглавление'")
+                                    ol
+                                        each tocItem in toc
+
+                                            if (tocItem.isCategory)
+                                                li(class="category")= tocItem.title
+
+                                            else
+                                                li(class="article")
+                                                    a(href=_.url + `${book.id}/${tocItem.id}`, class=tocItem.isCurrent ? 'current' : '')= tocItem.title
+
+                                                    if tocItem.isOptional
+                                                        span.tag(class=`tag--optional`, title='Дополнительный параграф. Можно пропустить... Но не стоит!')
+                                                            i.fa.fa-code-branch.fa-flip-vertical
+
+            article
+                .content!= content
+
+                .contributors
+                    .contributor.contributor--author

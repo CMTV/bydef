@@ -1,0 +1,62 @@
+include includes/mixins
+
+mixin contribution(contribution)
+    .fancyBlock.contribution(class=contribution.type)
+        .contribution-type(class=`contribution-type--${contribution.type}`, title = (contribution.type == 'add') ? 'Параграф' : 'Правка')
+            i(class = (contribution.type == 'add') ? 'far fa-file-alt' : 'far fa-edit')
+
+        .fancyMain.contribution-body
+            a.book(href=_.url + contribution.book.id)= contribution.book.title
+            a.article(href=_.url + contribution.article.id) §#{contribution.article.paragraph}. #{contribution.article.title}
+
+        .fancyActions.contribution-actions
+            a.fancyAction.contribution-goto(href=_.url + contribution.article.id, title="Перейти")
+                i.fas.fa-arrow-right
+
+doctype html
+html(lang="ru")
+
+    head
+        include includes/head/head
+        link(rel="stylesheet", href=_.url + 'styles/contributor.min.css')
+    
+    body.page-contributor
+        .notFooter
+            section.header-strong
+                include includes/topBar
+
+                .contentArea.padding.strong-content
+
+                    .avatar
+                        +contributorAvatar(contributor)
+                    
+                    h1.name= contributor.name
+
+                    .stats
+                        .stats-item.stats-item--place(title="Место в рейтинге")
+                            i.fas.fa-signal
+                            span= contributor.place
+                        .stats-item.stats-item--adds(title="Параграфов написано")
+                            i.fas.fa-file-alt
+                            span= contributor.adds
+                        .stats-item.stats-item--edits(title="Правок сделано")
+                            i.fas.fa-edit
+                            span= contributor.edits
+                    
+                    if contributor.slogan
+                        p.slogan= contributor.slogan
+
+                    nav
+                        if (contributor.link)
+                            a.nav-item(title="Ссылка", href=contributor.link, target="_blank")
+                                i.fas.fa-external-link-alt
+
+                        if (contributor.forumUrl)
+                            a.nav-item(title="Профиль на форуме", href=contributor.forumUrl, target="_blank")
+                                i.fas.fa-comment-dots
+
+            section.contentArea.padding.contributions
+                each contribution in contributor.contributions
+                    +contribution(contribution)
+
+        include includes/footer/footer

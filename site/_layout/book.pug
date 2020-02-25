@@ -1,3 +1,5 @@
+include includes/mixins
+
 mixin bookStatsItem(name, title, icon, value)
     .stats-item(class=`stats-item--${name}` title=title)
         i(class=icon)
@@ -51,46 +53,8 @@ mixin paragraph(tocItem)
                 ol
                     each header in tocItem.headers
                         li(class=`level-${header.level}`)
-                            a(href=_.url + `${id}/${tocItem.id}#${header.id}`)= header.title
-
-//-
-//- Contributor
-//-
-
-mixin contributorStatsItem(name, value, icon, title)
-    .fancyAction.contributor-statsItem(class=`contributor-statsItem--${name}`, title=title)
-        i(class=icon)
-        span= value
-
-mixin contributorTag(name, icon, title, href)
-    a.tag(class=`tag--${name}`, href=href, title=title)
-        i(class=icon)
-
-mixin contributor(contributor)
-    .fancyBlock.contributor
-        a.fancyFigure.contributor-avatar(href=contributor.link, target="_blank")
-            if contributor.hasAvatar
-                img(src=_.url + `graphics/contributors/${contributor.id}.png`)
-            else
-                i.fas.fa-user-graduate
-        
-        .fancyMain.contributor-info
-            .name
-                a(href=contributor.link, target="_blank")= contributor.name
+                            a(href=_.url + `${id}/${tocItem.id}/#${header.id}`)= header.title
                 
-                if contributor.forumUrl
-                    +contributorTag('forumUrl', 'far fa-comment-dots', 'Профиль на форуме', contributor.forumUrl)
-
-            if contributor.slogan
-                span.slogan= contributor.slogan
-
-        a.fancyActions.contributor-stats(href=_.url + `contributors/${contributor.id}`)
-            if contributor.adds
-                +contributorStatsItem('adds', contributor.adds, 'far fa-file-alt', 'Параграфов написано')
-            if contributor.edits
-                +contributorStatsItem('edits', contributor.edits, 'fas fa-edit', 'Правок внесено')
-                
-
 //-
 //- Index
 //-
@@ -143,6 +107,9 @@ html(lang="ru")
         include includes/head/head
         link(rel="stylesheet", href=_.url + 'styles/book.min.css')
         script(src=_.url + 'scripts/book.min.js')
+
+        //- Axios
+        script(src=_.url + `libs/axios.min.js`)
 
     body.page-book
         .notFooter

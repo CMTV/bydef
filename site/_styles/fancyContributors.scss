@@ -1,0 +1,97 @@
+.fancyBlock.contributor
+{
+    margin-top: $structureGap * 2;
+
+    .contributorAvatar
+    {
+        $size: 64px;
+
+        img 
+        {
+            width: $size; height: $size;
+            border-radius: $borderRadius;
+        }
+
+        i 
+        { 
+            text-align: center;
+            font-size: $size - 2px;
+
+            height: $size;
+            width: $size;
+        }
+    }
+
+    .contributorInfo
+    {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .name
+        {
+            a
+            {
+                font-size: 110%;
+                text-decoration: none;
+
+                &:hover { text-decoration: underline; }
+            }
+
+            .tag
+            {
+                margin-left: $structureGap / 1.5;
+
+                line-height: 0;
+                color: $c_TextMuted;
+                transition: color $animSpeed;
+
+                &:hover
+                {
+                    color: $c_Brand;
+                }
+            }
+        }
+
+        .slogan
+        {
+            color: $c_TextMuted;
+        }
+
+        @include layout(mini)
+        {
+            text-align: center;
+        }
+    }
+
+    .contributorStats
+    {
+        text-decoration: none;
+
+        .contributor-statsItem
+        {
+            padding: $structureGap $structureGap * 2;
+            color: $c_TextMuted;
+            transition: color $animSpeed;
+
+            i
+            {
+                text-align: center;
+                width: 25px;
+                font-size: 20px;
+                margin-right: $structureGap / 2;
+            }
+
+            span
+            {
+                font-size: 115%;
+            }
+
+            &:hover
+            {
+                cursor: pointer;
+                color: $c_Text;
+            }
+        }
+    }
+}

@@ -182,6 +182,16 @@ window.onload = () =>
             {
                 this.bookTabClick(location.hash.substr(1));
             }
+        },
+
+        mounted()
+        {
+            this.$nextTick(() =>
+            {
+                setTimeout(() => {
+                    MathJax.startup.defaultReady();
+                }, 0);
+            });
         }
     });
 }

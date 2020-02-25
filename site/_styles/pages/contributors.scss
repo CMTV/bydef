@@ -1,0 +1,30 @@
+@import '../import';
+
+.page-contributors
+{
+    .contributors-num
+    {
+        font-weight: normal;
+    }
+
+    .contributors
+    {
+        margin-top: $structureGap * 2.5;
+
+        @include layout-full
+        {
+            width: 800px;
+            margin: $structureGap * 2.5 auto 0;
+        }
+    }
+
+    footer
+    {
+        margin-top: 80px;
+
+        @include layout(mini)
+        {
+            margin-top: $structureGap * 2;
+        }
+    }
+}

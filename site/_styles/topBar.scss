@@ -13,15 +13,6 @@
         align-items: center;
         line-height: 0;
 
-        .sidebar-switcher
-        {
-            padding: $structureGap;
-
-            &:hover { cursor: pointer; }
-            
-            i { font-size: 150%; }
-        }
-
         .primary
         {
             flex: 1;

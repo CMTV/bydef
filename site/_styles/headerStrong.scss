@@ -155,6 +155,9 @@ $c_HeaderStrongBg: darken($c_Brand, 20%);
 
             // Learn
             @include buttonStyle(learn, rgb(16, 175, 16));
+
+            // Contribute
+            @include buttonStyle(contribute, $c_Brand);
         }
     }
 

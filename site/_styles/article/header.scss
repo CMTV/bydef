@@ -1,0 +1,127 @@
+@import '../import';
+
+header
+{
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0; right: 0;
+
+    height: $headerHeight;
+
+    background: white;
+    border-bottom: 1px solid $c_BorderFaint;
+
+    .contentArea 
+    {
+        display: flex;
+        justify-content: center;
+
+        height: 100%;
+
+        .headerInfo
+        {
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            @include layout(noAside)
+            {
+                justify-content: center;
+            }
+
+            a { text-decoration: none; }
+
+            .logotype
+            {
+                width: 45px;
+                height: 45px;
+
+                @include layout(stretchArticle) { margin-left: $structureGap; }
+                @include layout(noAside) { margin: 0; }
+
+                svg { fill: $c_Brand; }
+            }
+
+            .sep
+            {
+                width: 1px;
+                height: 60%;
+
+                background-color: $c_BorderFaint;
+
+                margin: 0 $structureGap * 1.5;
+            }
+
+            .bookIcon
+            {
+                width: 40px;
+                height: 40px;
+            }
+
+            .bookTitle
+            {
+                margin-left: $structureGap * 1.25;
+
+                font-family: Yandex;
+                font-size: 120%;
+                color: $c_TextMuted;
+
+                transition: color $animSpeed;
+
+                &:hover { color: $c_Text; }
+
+                @include layout(noAside) { display: none; }
+            }
+        }
+
+        .headerNavItem
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 $structureGap * 1.25;
+            
+            color: $c_TextMuted;
+            text-decoration: none;
+
+            transition: color $animSpeed, background-color $animSpeed;
+
+            &:hover
+            {
+                cursor: pointer;
+                background-color: lighten($c_Brand, 47%);
+                color: $c_Brand;
+            }
+
+            &._active { color: $c_Brand; }
+
+            i { font-size: 23px; }
+
+            //
+
+            &--forum { @include layout(noAside) { display: none; } }
+            &--donate
+            {
+                color: orange !important;
+
+                &:hover { background-color: lighten(orange, 43%); }
+            }
+        }
+
+        .headerNavGroup
+        {
+            display: flex;
+        }
+
+        #aside-switcher
+        {
+            display: none;
+            
+            @include layout(noAside)
+            {
+                display: flex;
+            }
+        }
+    }
+}

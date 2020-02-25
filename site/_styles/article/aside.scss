@@ -1,0 +1,284 @@
+@import '../import';
+
+#aside
+{
+    .aside-overlay
+    {
+        position: fixed;
+        z-index: 1;
+        left: 0; top: 0; right: 0; bottom: 0;
+        background-color: rgba(0,0,0,0.3);
+
+        &-enter-active, &-leave-active
+        {
+            transition: opacity $animSpeed;
+        }
+
+        &-enter, &-leave-to
+        {
+            opacity: 0;
+        }
+    }
+
+    aside
+    {
+        position: fixed;
+        z-index: 10;
+        top: $headerHeight;
+
+        width: $asideWidth;
+        height: calc(100vh - #{$headerHeight});
+
+        transition: left $animSpeed;
+
+        border:  1px solid $c_BorderFaint;
+        border-top: none;
+        border-bottom: none;
+
+        background-color: $c_BackgroundMuted;
+
+        @include layout(noAside)
+        {
+            background: white;
+            left: -$asideWidth;
+
+            &._showing
+            {
+                left: 0;
+            }
+        }
+
+        .aside-content
+        {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            progress[value]
+            {
+                display: block;
+                appearance: none;
+                width: 100%;
+                height: 4px;
+        
+                &::-webkit-progress-bar
+                {
+                    background: $c_BackgroundMuted;
+                }
+
+                &::-webkit-progress-value
+                {
+                    background: lighten($c_Brand, 30%);
+                }
+            }
+
+            .tocLinks
+            {
+                width: 100%;
+                margin-top: $structureGap;
+                padding: 0 $structureGap;
+                display: none;
+
+                @include layout(noAside) { display: flex; }
+
+                .tocButton
+                {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    color: $c_TextMuted;
+                    text-decoration: none;
+
+                    background: white;
+                    border: 1px solid $c_Border;
+                    border-radius: $borderRadius;
+
+                    padding: 10px 0;
+
+                    transition: color $animSpeed, border-color $animSpeed;
+
+                    &:not(:first-of-type)
+                    {
+                        margin-left: $structureGap / 2;
+                    }
+
+                    &:hover
+                    {
+                        cursor: pointer;
+                        color: $c_Text;
+                        border-color: $c_BorderStrong;
+                    }
+                }
+            }
+
+            .tocNav
+            {
+                padding: 0 $structureGap;
+                margin: $structureGap 0;
+                width: 100%;
+                display: flex;
+
+                @include layout(noAside)
+                {
+                    margin-top: $structureGap / 2;
+                }
+
+                .tocButton
+                {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+        
+                    color: $c_TextMuted;
+                    text-decoration: none;
+    
+                    background: white;
+                    border: 1px solid $c_Border;
+                    border-radius: $borderRadius;
+    
+                    padding: 10px 0;
+    
+                    transition: color $animSpeed, border-color $animSpeed;
+    
+                    &:hover
+                    {
+                        cursor: pointer;
+                        color: $c_Text;
+                        border-color: $c_BorderStrong;
+                    }
+    
+                    span { margin-left: $structureGap / 1.5; }
+
+                    //
+
+                    &--switchToc
+                    {
+                        flex: 1;
+                        margin: 0 $structureGap / 2;
+                    }
+
+                    &--previous, &--next
+                    {
+                        width: 45px;
+
+                        &.disabled
+                        {
+                            cursor: not-allowed;
+                            color: $c_Border;
+                            border-color: $c_BorderFaint;
+                            background: $c_BackgroundMuted;
+                        }
+                    }
+                }
+            }
+
+            .toc
+            {
+                flex: 1;
+                width: 100%;
+                position: relative;
+                overflow-y: auto;
+
+                direction: rtl;
+
+                &::-webkit-scrollbar
+                {
+                    width: 7px;
+                }
+
+                &::-webkit-scrollbar-thumb
+                {
+                    background-color: darken($c_BorderFaint, 10%);
+                    &:hover { background-color: $c_BorderStrong; }
+                }
+
+                &--article, &--book 
+                {
+                    direction: ltr;
+                    position: absolute;
+                    left: 0; top: 0; right: 0;
+                    padding: $structureGap;
+                    padding-top: 0;
+
+                    &-enter-active, &-leave-active
+                    {
+                        transition: opacity $animSpeed;
+                    }
+            
+                    &-enter, &-leave-to
+                    {
+                        opacity: 0;
+                    }
+
+                    ol
+                    {
+                        list-style-type: none;
+
+                        a
+                        {
+                            color: $c_TextMuted;
+                            text-decoration: none;
+                            
+                            transition: color $animSpeed;
+
+                            &:hover { color: $c_Brand; }
+                        }
+
+                        .tag
+                        {
+                            margin-left: 7px;
+                            &:hover { cursor: help; }
+
+                            &--optional
+                            {
+                                color: mix($c_TextMuted, rgb(240, 196, 0), 30%);
+                            }
+                        }
+                    }
+                }
+
+                &--article
+                {
+                    .header.current a { color: $c_Brand; }
+
+                    .level-2, .level-3 { margin-bottom: 5px; }
+                    .level-2:not(:first-of-type) { margin-top: $structureGap; }
+
+                    @for $i from 2 through 6
+                    {
+                        .level-#{$i}
+                        {
+                            margin-left: 10px * ($i - 2);
+                            font-size: calc(100% - #{($i - 2) * 2 - 2%});
+                        }
+                    }
+                }
+
+                &--book
+                {
+                    .category
+                    {
+                        font-size: 110%;
+                        color: $c_Text;
+        
+                        padding: $structureGap;
+                        padding-left: 0;
+                        padding-bottom: $structureGap / 2;
+
+                        border-bottom: 1px solid $c_BorderFaint;
+
+                        margin-bottom: $structureGap / 2;
+                    }
+
+                    .article a
+                    {
+                        &.current { color: $c_Brand; }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+//-
+//- Contributors
+//-
+
+mixin contributorAvatar(contributor)
+    if contributor.hasAvatar
+        img(src=_.url + `graphics/contributors/${contributor.id}.png`)
+    else
+        i.fas.fa-user-graduate
+
+mixin contributorTag(name, icon, title, href)
+    a.tag(class=`tag--${name}`, href=href, title=title)
+        i(class=icon)
+
+mixin contributorStatsItem(name, value, icon, title)
+    .fancyAction.contributor-statsItem(class=`contributor-statsItem--${name}`, title=title)
+        i(class=icon)
+        span= value
+
+mixin contributor(contributor)
+    .fancyBlock.contributor
+
+        a.fancyFigure.contributorAvatar(href=contributor.link, target="_blank")
+            +contributorAvatar(contributor)
+
+        .fancyMain.contributorInfo
+            .name
+                a(href=contributor.link, target="_blank")= contributor.name
+
+                if contributor.forumUrl
+                    +contributorTag('forumUrl', 'far fa-comment-dots', 'Профиль на форуме', contributor.forumUrl)
+            
+            if contributor.slogan
+                span.slogan!= contributor.slogan
+
+        a.fancyActions.contributorStats(href=_.url + `contributors/${contributor.id}`)
+            if contributor.adds
+                +contributorStatsItem('adds', contributor.adds, 'far fa-file-alt', 'Параграфов написано')
+            if contributor.edits
+                +contributorStatsItem('edits', contributor.edits, 'far fa-edit', 'Правок внесено')

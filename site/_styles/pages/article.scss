@@ -1,0 +1,37 @@
+@import '../import';
+
+$headerHeight: 60px;
+$asideWidth: 300px;
+
+.page-article
+{
+    .contentArea
+    {
+        width: 1100px;
+
+        @include layout(stretchArticle)
+        {
+            width: 100%;
+        }
+    }
+
+    //
+    // General layout
+    //
+
+    aside
+    {
+        @include layout(noAside)
+        {
+            //display: ;
+        }
+    }
+
+    //
+    //
+    //
+
+    @import '../article/header';
+    @import '../article/aside';
+    @import '../article/article';
+}

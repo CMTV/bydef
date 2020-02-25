@@ -1,0 +1,72 @@
+mixin navItem(name, icon, title, href)
+    a.nav-item(class=`nav-item--${name}`, title=title, href=href)
+        i(class=icon)
+        span= title
+
+mixin tocItemCategory(category)
+    h2.category(title = category.description)= category.title
+
+mixin tocItemBook(book)
+    .fancyBlock.book
+        .fancyMain.book-body
+            a.goto-button(href=_.url + book.id)
+                span Перейти
+                i.fas.fa-arrow-right
+
+            .book-info
+                a.book-icon(href=_.url + book.id)!= book.icon
+                .titleStats
+                    a.title(href=_.url + book.id)= book.title
+                    .stats
+                        .stats-item(title="Параграфов")
+                            i.fas.fa-list
+                            span= book.stats.articlesNum
+
+                        .stats-item(title="Аксиом, определений и теорем")
+                            i.fas.fa-shapes
+                            span= book.stats.indexItemsNum
+
+                        .stats-item(title="Задач")
+                            i.fas.fa-check-square
+                            span= book.stats.tasksNum
+
+            .book-description!= book.description
+        .fancyActions.book-actions
+            a.fancyAction.book-action.book-action--goto(title="Перейти к учебнику", href=_.url + book.id)
+                span Перейти
+                i.fas.fa-arrow-right
+
+doctype html
+html(lang="ru")
+
+    head
+        include includes/head/head
+        link(rel="stylesheet", href=_.url + 'styles/index.min.css')
+        script(src=_.url + 'scripts/index.min.js')
+    
+    body.page-index
+        .notFooter
+
+            section.header-strong
+                .contentArea.padding.strong-content
+
+                    .logotype-container
+                        .logotype
+                            include /graphics/logo.svg
+                        .logotype-text by<span>def</span>
+
+                    p.site-description Понятные, подробные и интересные учебники!<br>Присоединяйтесь!
+
+                    nav
+                        +navItem('donate', 'fas fa-hand-holding-usd', 'Поддержать', _.url + 'sponsors')
+                        +navItem('contributors', 'fas fa-users', 'Вклад', _.url + 'contributors')
+                        +navItem('community', 'fas fa-comments', 'Форум', _.links.community)
+
+            section.contentArea.padding.toc
+                each tocItem in toc
+                    if tocItem.isCategory
+                        +tocItemCategory(tocItem)
+                    else
+                        +tocItemBook(tocItem)
+
+        include includes/footer/footer

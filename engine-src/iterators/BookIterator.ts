@@ -2,11 +2,10 @@ import { Iterator, BookStepData, StepMeta, ArticleStepData } from "./Iterator";
 import { IBookView } from "../view-templates/pages/IBookView";
 import { BookBuilder } from "../builders/BookBuilder";
 import { IHeadView } from "../view-templates/IHeadView";
-import { MdHelper } from "../MdHelper";
-import { getArtcileHeaders } from "../view-templates/IArticleHeaderView";
 import { UtilIO, Util } from "../Util";
-import { getContributorView } from "../view-templates/IContributorView";
+import { getContributorView, sortContributors } from "../view-templates/IContributorView";
 import { getIBookIndexItemViews } from "../view-templates/IBookIndexItemView";
+import { ITocItemView } from "../view-templates/ITocItemView";
 
 const config = require('../../config');
 
@@ -33,7 +32,7 @@ export class BookIterator extends Iterator
         this.makeHead(stepData);
         this.book.tasksNum = 0;
 
-        this.book.toc = [];
+        this.book.toc = <ITocItemView[]> JSON.parse(UtilIO.readFile(`computed/bookToc/${this.book.id}.json`));
         this.book.index = [];
         this.book.contributors = [];
     }
@@ -46,21 +45,6 @@ export class BookIterator extends Iterator
         }
 
         //
-        // TOC
-        //
-
-        this.book.toc.push({
-            isCategory:     false,
-            id:             stepData.article.id,
-            title:          stepData.article.config.title,
-            description:    stepData.article.config.description,
-            articleIndex:   stepMeta.index + 1,
-            isOptional:     stepData.article.config.optional,
-            
-            headers:        getArtcileHeaders(MdHelper.getHeaders(stepData.article.content, [1]))
-        });
-
-        //
         // Contributors
         //
 
@@ -71,16 +55,6 @@ export class BookIterator extends Iterator
         //
 
         this.book.index = this.book.index.concat(getIBookIndexItemViews(stepData, stepMeta.index + 1));
-    }
-
-    bookTocStep(tocItem: string|[string], stepData: BookStepData, stepMeta: StepMeta)
-    {
-        if (typeof tocItem === 'string') return;
-
-        this.book.toc.push({
-            isCategory: true,
-            title: tocItem[0]
-        })
     }
 
     taskStep()
@@ -130,19 +104,6 @@ export class BookIterator extends Iterator
         this.book.contributors.push(toPush);
     }
 
-    sortContributors()
-    {
-        this.book.contributors.sort((a, b) => {
-            let aRating = Util.getContributorRating(a.adds, a.edits);
-            let bRating = Util.getContributorRating(b.adds, b.edits);
-
-            if (aRating > bRating) return -1;
-            if (bRating > aRating) return 1;
-
-            return 0;
-        });
-    }
-
     sortIndex()
     {
         this.book.index.sort((a, b) => {
@@ -169,7 +130,7 @@ export class BookIterator extends Iterator
 
     buildBook()
     {
-        this.sortContributors();
+        sortContributors(this.book.contributors);
         this.sortIndex();
         
         (new BookBuilder(this.book)).build();

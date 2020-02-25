@@ -16,7 +16,18 @@ link(rel="stylesheet", href=_.url + 'libs/font-awesome/css/all.min.css')
 //- Vue.js
 script(src=_.url + `libs/vue/vue` + (_.devMode ? '.js' : '.min.js'))
 
-//- Axios
-script(src=_.url + `libs/axios.min.js`)
+//- MathJax
+script.
+    MathJax =
+    {
+        tex: {
+            inlineMath: [['$', '$']],
+            displayMath: [['$$', '$$']],
+            tags: 'ams'
+        },
+        startup: { ready: () => { /* Waiting Vue to fully render */ } }
+    };
+
+script(async, src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")
 
 include head-extra.html

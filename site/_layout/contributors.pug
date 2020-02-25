@@ -1,0 +1,29 @@
+include includes/mixins
+
+doctype html
+html(lang="ru")
+
+    head
+        include includes/head/head
+        link(rel="stylesheet", href=_.url + 'styles/contributors.min.css')
+
+    body.page-contributors
+        .notFooter
+        
+            section.header-strong
+                include includes/topBar
+
+                .contentArea.padding.strong-content
+                    h1 Вклад
+                    p Люди <span class="contributors-num">(#{contributors.length})</span>, которые внесли вклад в проект!<br>Есть что рассказать?
+
+                    .strong-actions
+                        a.button.button--contribute(href='sdf', target="_blank")
+                            i.fas.fa-pencil-alt
+                            span Внести вклад
+
+            section.contentArea.padding.contributors
+                each contributor in contributors
+                    +contributor(contributor)
+
+        include includes/footer/footer

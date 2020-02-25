@@ -18,6 +18,7 @@ export enum IteratorContext
 export interface StepMeta
 {
     index: number;
+    total: number;
     isFirst: boolean;
     isLast: boolean;
 }

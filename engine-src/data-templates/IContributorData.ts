@@ -12,7 +12,7 @@ export interface IContributorData
 
 export function getContributorData(id: string): IContributorData
 {
-    let json: IContributorData[] = JSON.parse(UtilIO.readFile('data/contributors.json'));
+    let json: IContributorData[] = getContributorsData();
 
     for (let i = 0; i < json.length; i++)
     {
@@ -21,4 +21,10 @@ export function getContributorData(id: string): IContributorData
             return json[i];
         }
     }
+}
+
+export function getContributorsData(): IContributorData[]
+{
+    let contributors: IContributorData[] = JSON.parse(UtilIO.readFile('data/contributors.json'));
+    return contributors;
 }

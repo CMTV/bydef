@@ -4,6 +4,7 @@ module.exports = {
     links:
     {
         donate: 'https://boosty.to/bydef',
-        community: ''
+        community: '',
+        github: ''
     }
 }
