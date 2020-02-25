@@ -18,6 +18,7 @@ jobs:
       - name: Building
         run: |
           tsc
+          gulp build
 
       - name: Deploy
         uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
