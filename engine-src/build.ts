@@ -1,7 +1,7 @@
 import chalk = require("chalk");
 
 import { DonatorsBuilder } from "./builders/DonatorsBuilder";
-import { Walker } from "./walker";
+import { Walker } from "./Walker";
 import { PreIPipeline } from "./iterators/IteratorPipeline";
 import { MainPageBuilder } from "./builders/MainPageBuilder";
 import { ContributorsBuilder } from "./builders/ContributorsBuilder";
