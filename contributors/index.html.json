@@ -2,6 +2,7 @@
     "_": {
         "devMode": true,
         "url": "https://bydef.ru/",
+        "CNAME": "bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
