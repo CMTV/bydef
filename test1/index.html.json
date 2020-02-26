@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -15,9 +15,9 @@
     "head": {
         "title": "Тестовый учебник 1 - ByDef",
         "description": "Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника.",
-        "canonicalUrl": "http://localhost:8080/test1",
+        "canonicalUrl": "https://bydef.rutest1",
         "ogType": "book",
-        "ogImage": "http://localhost:8080/test1/og.png"
+        "ogImage": "https://bydef.rutest1/og.png"
     },
     "tasksNum": 2,
     "toc": [

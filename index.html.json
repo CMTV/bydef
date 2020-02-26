@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "Учебники ByDef",
         "description": "Понятные, подробные и интересные учебники, которые дополняются и поддерживаются сообществом! Присоединяйтесь!",
-        "canonicalUrl": "http://localhost:8080/"
+        "canonicalUrl": "https://bydef.ru"
     },
     "toc": [
         {

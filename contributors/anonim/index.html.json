@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "Аноним Б - ByDef",
         "description": "Вклад пользователя \"Аноним Б\" в учебники ByDef.",
-        "canonicalUrl": "http://localhost:8080/contributors/anonim"
+        "canonicalUrl": "https://bydef.rucontributors/anonim"
     },
     "contributor": {
         "id": "anonim",

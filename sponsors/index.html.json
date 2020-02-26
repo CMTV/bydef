@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "Спонсоры - ByDef",
         "description": "Прекрасные люди, которые материально поддерживают проект!",
-        "canonicalUrl": "http://localhost:8080/sponsors/"
+        "canonicalUrl": "https://bydef.rusponsors/"
     },
     "donators": {
         "t1": [

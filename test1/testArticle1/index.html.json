@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "§1. Первый параграф!! | Тестовый учебник 1 - ByDef",
         "description": "Очень длинное и крутое описание первого параграфаф. Можете также с <strong>HTML</strong> кодом!",
-        "canonicalUrl": "http://localhost:8080/test1/testArticle1",
+        "canonicalUrl": "https://bydef.rutest1/testArticle1",
         "keywords": [
             "интеграл",
             "производная"

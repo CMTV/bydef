@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "http://localhost:8080/",
+        "url": "https://bydef.ru",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "§2. Второй парагрффак Кек! | Тестовый учебник 1 - ByDef",
         "description": "Повседневная практика показывает, что новая модель организационной деятельности представляет собой интересный эксперимент проверки модели развития.",
-        "canonicalUrl": "http://localhost:8080/test1/testArticle2",
+        "canonicalUrl": "https://bydef.rutest1/testArticle2",
         "ogType": "article"
     },
     "current": 2,
