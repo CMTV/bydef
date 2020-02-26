@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "https://bydef.ru",
+        "url": "https://bydef.ru/",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "Николай Нагибин - ByDef",
         "description": "Вклад пользователя \"Николай Нагибин\" в учебники ByDef.",
-        "canonicalUrl": "https://bydef.rucontributors/nnagibin"
+        "canonicalUrl": "https://bydef.ru/contributors/nnagibin"
     },
     "contributor": {
         "id": "nnagibin",

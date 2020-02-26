@@ -1,7 +1,7 @@
 {
     "_": {
         "devMode": true,
-        "url": "https://bydef.ru",
+        "url": "https://bydef.ru/",
         "links": {
             "donate": "https://boosty.to/bydef",
             "community": "",
@@ -11,7 +11,7 @@
     "head": {
         "title": "Вклад - ByDef",
         "description": "Прекрасные люди, которые пишут или редактируют параграфы учебников ByDef.",
-        "canonicalUrl": "https://bydef.rucontributors"
+        "canonicalUrl": "https://bydef.ru/contributors"
     },
     "contributors": [
         {
