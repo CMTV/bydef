@@ -80,11 +80,9 @@ task('build-pages', (done) =>
 
 task('build-rest', (done) =>
 {
-    // Generate with Mustache
+    let buildRest = require('./engine/build-rest');
 
-    // sitemap
-    // robots
-    // ...
+    buildRest.buildAll();
 
     done();
 });
@@ -123,5 +121,13 @@ task('build', (done) =>
         'scripts'
     )();
 
+    done();
+});
+
+task('build-out', (done) =>
+{
+    global.out = true;
+
+    series('build')();
     done();
 });
