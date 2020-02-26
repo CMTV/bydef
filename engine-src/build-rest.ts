@@ -4,7 +4,7 @@ const config = require('../config');
 
 function build_CNAME()
 {
-    UtilIO.writeFile('out/CNAME', config.url.replace('https://', ''));
+    UtilIO.writeFile('out/CNAME', config.CNAME);
 }
 
 export function buildAll()

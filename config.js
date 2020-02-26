@@ -1,5 +1,6 @@
 let devMode = true;
 let url = 'https://bydef.ru/';
+let CNAME = 'bydef.ru';
 
 module.exports = {
     devMode: devMode,
