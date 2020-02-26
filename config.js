@@ -1,5 +1,5 @@
 let devMode = true;
-let url = 'https://bydef.ru';
+let url = 'https://bydef.ru/';
 
 module.exports = {
     devMode: devMode,
