@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0">
+    <link rel="icon" href="https://bydef.ru/favicon.svg">
+    <link rel="icon" type="image/png" href="https://bydef.ru/favicon.png">
+    <title>Основы математики - ByDef</title>
+    <meta name="description" content="Отличная отравная точка для тех, кто хочет понять, почему именно математика работает. О математике и основы логики.">
+    <meta name="generator" content="Static Site Generator &quot;ByDef&quot;">
+    <link rel="canonical" href="https://bydef.ru/base-math">
+    <meta name="og:title" content="Основы математики - ByDef">
+    <meta name="og:description" content="Отличная отравная точка для тех, кто хочет понять, почему именно математика работает. О математике и основы логики.">
+    <meta name="og:type" content="book">
+    <meta name="og:image" content="https://bydef.ru/base-math/og.png">
+    <meta name="og:url" content="https://bydef.ru/base-math">
+    <meta name="og:site_name" content="ByDef">
+    <link rel="stylesheet" href="https://bydef.ru/global.min.css">
+    <link rel="stylesheet" href="https://bydef.ru/libs/font-awesome/css/all.min.css">
+    <script src="https://bydef.ru/libs/vue/vue.js"></script>
+    <script>
+      MathJax =
+      {
+          tex: {
+              inlineMath: [['$', '$']],
+              displayMath: [['$$', '$$']],
+              tags: 'ams'
+          },
+          startup: { ready: () => { /* Waiting Vue to fully render */ } }
+      };
+      
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://bydef.ru/styles/book.min.css">
+    <script src="https://bydef.ru/scripts/book.min.js"></script>
+    <script src="https://bydef.ru/libs/axios.min.js"></script>
+  </head>
+  <body class="page-book">
+    <div class="notFooter">
+      <section class="header-strong">
+        <section class="topBar">
+          <div class="contentArea">
+            <div class="primary"><a class="logotype" href="https://bydef.ru/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <path d="M103.46,118.29c0,27.52-22.67,50.77-49.5,50.77-27.52,0-50.76-23.25-50.76-50.77A50.23,50.23,0,0,1,54,67.52C81.25,67.52,103.46,90.3,103.46,118.29ZM54,330.94c-27.52,0-50.76,23.25-50.76,50.77A50.23,50.23,0,0,0,54,432.48c27.29,0,49.5-22.78,49.5-50.77C103.46,354.19,80.79,330.94,54,330.94ZM164.3,192.25c6.49,2.36,14.1,2.36,20.22,2.36H461.31c6.86,0,14.65,0,21.27-2.34,9.17-3.23,14.22-10.49,14.22-20.43,0-13.23-7.51-19-13.81-21.45-6.58-2.59-14.25-2.59-20.41-2.59H184.52c-6.17,0-13.83,0-20.41,2.59-6.3,2.48-13.82,8.22-13.82,21.45C150.29,181.72,155.27,189,164.3,192.25ZM482.58,307.93c-6.62-2.34-14.41-2.34-21.27-2.34H184.52c-6.12,0-13.73,0-20.22,2.36-9,3.29-14,10.54-14,20.41,0,13.24,7.52,19,13.82,21.46,6.58,2.59,14.24,2.59,20.41,2.59H462.58c6.16,0,13.83,0,20.41-2.59,6.3-2.49,13.81-8.22,13.81-21.46C496.8,318.43,491.75,311.17,482.58,307.93Z"/>
+</svg></a><a class="logotype-text" href="https://bydef.ru/">by<span>def</span></a></div>
+            <div class="actions"><a class="action action--donate" title="Поддержать!" href="https://bydef.ru/sponsors"><i class="fas fa-hand-holding-usd"></i><span>Поддержать!</span></a><a class="action action--forum" title="Форум" href=""><i class="fas fa-comments"></i><span>Форум</span></a>
+            </div>
+          </div>
+        </section>
+        <div class="contentArea padding strong-content">
+          <div class="book-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="M511.82,303.08c1.36-8.79-5.13-17.57-11.31-25.11a329.5,329.5,0,0,1-37.34-60.68,14.53,14.53,0,0,1-1.45-3.7c0-2.36,2.79-5.05,7-8.88a32.88,32.88,0,0,0,12.49-19,29.86,29.86,0,0,0-2.33-14.33c-1.53-4-3.29-7.92-5-11.8a111.45,111.45,0,0,1-7.32-19.45,250.93,250.93,0,0,0-8.4-30.84,163.29,163.29,0,0,0-34.24-55.84c-19.08-20.17-47-33.66-85.52-41.34A570.09,570.09,0,0,0,255.84.26a208.41,208.41,0,0,0-29.67.59,8.56,8.56,0,0,0,1.59,17,185.44,185.44,0,0,1,27.18-.58A554.25,554.25,0,0,1,335,28.84c34.47,6.85,60.16,19.07,76.47,36.35a146.08,146.08,0,0,1,30.62,50,227.72,227.72,0,0,1,7.68,28.23,125.4,125.4,0,0,0,8.54,23.13c1.6,3.59,3.21,7.18,4.6,10.83a16.74,16.74,0,0,1,1.39,6.07c-.37,2.52-3.64,5.5-7.09,8.68a29.83,29.83,0,0,0-12.52,21.33A25.46,25.46,0,0,0,448,225a344,344,0,0,0,39,63.44c6.49,7.91,7.89,11,7.89,12.34a37,37,0,0,1-5.12,4.15,49.84,49.84,0,0,1-7,4.09c-7.28,3.72-17.25,8.82-19.29,19.23a31.87,31.87,0,0,0,2.27,19.09c1.48,3.13,3,5.9,4.36,8.25.44.73.88,1.55,1.29,2.3-3.59,2.85-8.37,6.46-10.41,8A8.53,8.53,0,0,0,459.32,378a31.42,31.42,0,0,1,3.3,5.29l-1.84,1.05A28.28,28.28,0,0,0,445,401.77a37.3,37.3,0,0,0,.85,18.38c.39,1.74.79,3.53,1,5.24a34.05,34.05,0,0,1-2.11,15.12,15.2,15.2,0,0,1-17.57,11.36,664.36,664.36,0,0,1-73.34-22.19h-.06c-8.87-3-16.91-5.83-23.25-8-5.9-2.07-10.4-3.63-12.73-4.38-35.47-11.3-42.66-24.08-42.46-32.81a8.53,8.53,0,0,0-8.33-8.73,8.39,8.39,0,0,0-8.71,8.29c-.5,21.2,17.78,37.84,54.32,49.49,2.23.75,6.56,2.26,12.29,4.27l7.68,2.67a136,136,0,0,0-30,54.49l-193.56-.58.58-.85a95.39,95.39,0,0,0,6.61-11.09,178.21,178.21,0,0,0,10.59-26.73,303.13,303.13,0,0,0,10.76-53.53,161.45,161.45,0,0,0-12.51-83.8,206.65,206.65,0,0,0-25.11-40c-5-6.67-10.08-13.56-14.51-20.57A115.34,115.34,0,0,1,70.1,221.53a8.53,8.53,0,0,0-16.62,3.86A132,132,0,0,0,71.05,267c4.77,7.52,10.09,14.68,15.21,21.59a191,191,0,0,1,23.18,36.63,144.39,144.39,0,0,1,11.21,74.93,288.49,288.49,0,0,1-10.09,50.49,163.28,163.28,0,0,1-9.64,24.29,79.76,79.76,0,0,1-5.53,9.22,66,66,0,0,0-8.64,16.21,8.52,8.52,0,0,0,8.12,11.09l214.19.6a8.53,8.53,0,0,0,8.28-6.47c3.17-12.88,15.32-47.18,34.54-58.46a647.77,647.77,0,0,0,71.94,21.53,34.8,34.8,0,0,0,7,.73A32,32,0,0,0,461,446a50.15,50.15,0,0,0,2.88-23c-.31-2.27-.8-4.48-1.3-6.7a23.48,23.48,0,0,1-.94-10.33c.7-2.64,2.66-4,7.68-6.83,2-1.15,4-2.35,6-3.71a12.33,12.33,0,0,0,5-8.37,21.44,21.44,0,0,0-2.78-12.31c2.91-2.23,6.09-4.69,7.93-6.4,7.89-6.45,2.67-15.69-.46-21.2-1.15-2-2.49-4.38-3.76-7.11a14.81,14.81,0,0,1-1-8.64c.44-2.22,6.62-5.37,10.31-7.26a62,62,0,0,0,8.86-5.12A26.13,26.13,0,0,0,511.82,303.08Z"/><path d="M416.47,150.9l16.66-3.69a216.94,216.94,0,0,0-7-26,129.35,129.35,0,0,0-27-44.27c-13.86-14.64-36.58-25.19-67.55-31.35a8.53,8.53,0,0,0-3.32,16.74c27.43,5.46,47.1,14.32,58.47,26.36a112.37,112.37,0,0,1,23.42,38.4A204.91,204.91,0,0,1,416.47,150.9Z"/><path d="M214.85,34.13H194.71a17.9,17.9,0,0,0-3.35.37l-7.68-7.68a15.45,15.45,0,0,0-19.19-2.13L147.83,35.87a77.48,77.48,0,0,0-9.92-4.14l-3.86-19.4A15.36,15.36,0,0,0,118.94,0h-16A15.37,15.37,0,0,0,87.77,12.4L83.91,31.71A79.37,79.37,0,0,0,74,35.84l-16.47-11a15.51,15.51,0,0,0-19.41,2L26.78,38.17a15.42,15.42,0,0,0-2.14,19.18L35.82,74a79.26,79.26,0,0,0-4.11,9.91L12.31,87.8A15.36,15.36,0,0,0,0,102.91v16a15.35,15.35,0,0,0,12.4,15.13l19.31,3.85a78.89,78.89,0,0,0,4.13,9.92l-11,16.47a15.49,15.49,0,0,0,2,19.4l11.35,11.35a15.37,15.37,0,0,0,10.9,4.53,15.55,15.55,0,0,0,8.28-2.39l12.86-8.62a17,17,0,0,0,11.75,8.89l25.5,5.12a102.41,102.41,0,0,0,6,14.37L99,238.53a17.06,17.06,0,0,0,2.25,21.63l14.16,14.16a17.06,17.06,0,0,0,21.43,2.23L158.49,262a100.75,100.75,0,0,0,14.37,6L178,293.55a17.06,17.06,0,0,0,16.73,13.65h20.14a17.06,17.06,0,0,0,16.74-13.7L236.71,268a100.8,100.8,0,0,0,14.37-6l21.57,14.44a17.13,17.13,0,0,0,21.62-2.24l14.16-14.17a17,17,0,0,0,2.23-21.43L296.16,217a101.92,101.92,0,0,0,6-14.37l25.53-5.12a17.06,17.06,0,0,0,13.65-16.73V160.6a17.07,17.07,0,0,0-13.68-16.75l-25.5-5.12a102.91,102.91,0,0,0-6-14.37l14.43-21.56a17.06,17.06,0,0,0-2.25-21.63L294.18,67a17.06,17.06,0,0,0-21.44-2.22l-21.67,14.5a101.92,101.92,0,0,0-14.37-6l-5.12-25.53A17.08,17.08,0,0,0,214.85,34.13ZM101.13,81.26a17.08,17.08,0,0,0-2.21,21.46l14.51,21.66a102.41,102.41,0,0,0-6,14.37l-13,2.56a34,34,0,0,1,10.61-64.06l-4,4Zm77.43-35.45a15.45,15.45,0,0,0-.59,2l-5.12,25.5a101.92,101.92,0,0,0-14.37,6L136.93,64.85A17.29,17.29,0,0,0,125,62.23a49.63,49.63,0,0,0-15.19-2.5A51.08,51.08,0,0,0,74.22,147.6a17.12,17.12,0,0,0-6,13v8.72L49.23,182l-9.48-9.47,13.09-19.51a8.5,8.5,0,0,0,.25-9.11,62.79,62.79,0,0,1-6.53-15.62A8.51,8.51,0,0,0,40,122.19l-23-4.58V104.26l23-4.58a8.56,8.56,0,0,0,6.57-6.15,62.33,62.33,0,0,1,6.52-15.61,8.54,8.54,0,0,0-.24-9.12L39.81,49.29l9.47-9.47,19.5,13.09a8.56,8.56,0,0,0,9.12.3,62,62,0,0,1,15.61-6.53,8.56,8.56,0,0,0,6.15-6.57l4.58-23h13.35l4.58,23a8.54,8.54,0,0,0,6.14,6.57,62.39,62.39,0,0,1,15.62,6.52,8.52,8.52,0,0,0,9.11-.24L172.55,39.8ZM227.1,88.28a84,84,0,0,1,20.14,8.36,8.55,8.55,0,0,0,9-.29L282.12,79l14.22,14.3-17.27,25.82a8.55,8.55,0,0,0-.29,9,84,84,0,0,1,8.36,20.15,8.55,8.55,0,0,0,6.56,6.13l30.55,6.14v20.14l-30.53,6.11a8.52,8.52,0,0,0-6.55,6.13,84.19,84.19,0,0,1-8.36,20.15,8.53,8.53,0,0,0,.29,9L296.42,248l-14.3,14.23L256.3,245a8.53,8.53,0,0,0-9-.29A84.19,84.19,0,0,1,227.12,253a8.52,8.52,0,0,0-6.13,6.55l-6.14,30.55H194.71l-6.11-30.52a8.52,8.52,0,0,0-6.13-6.55,84,84,0,0,1-20.15-8.37,8.55,8.55,0,0,0-9,.29l-25.85,17.33L113.22,248l17.27-25.82a8.55,8.55,0,0,0,.29-9A84,84,0,0,1,122.42,193a8.56,8.56,0,0,0-6.56-6.14l-30.55-6.13V160.59l30.53-6.1a8.53,8.53,0,0,0,6.55-6.14,84.19,84.19,0,0,1,8.36-20.15,8.49,8.49,0,0,0-.29-9L113.14,93.33l14.3-14.23,25.82,17.28a8.55,8.55,0,0,0,9,.29,83.81,83.81,0,0,1,20.15-8.37,8.53,8.53,0,0,0,6.14-6.55l6.13-30.55h20.14L221,81.72A8.56,8.56,0,0,0,227.1,88.28Z"/><path d="M264.51,170.67a59.73,59.73,0,1,0-59.73,59.73A59.74,59.74,0,0,0,264.51,170.67Zm-17.06,0A42.67,42.67,0,1,1,204.78,128,42.67,42.67,0,0,1,247.45,170.67Z"/><circle cx="204.78" cy="170.67" r="8.53"/><circle cx="435.18" cy="179.2" r="8.53"/></g></svg></div>
+          <h1 class="book-title">Основы математики</h1>
+          <div class="book-stats">
+            <div class="stats-item stats-item--articles" title="Параграфы"><i class="fas fa-list"></i><span>4</span></div>
+            <div class="stats-item stats-item--index" title="Определения и теоремы"><i class="fas fa-shapes"></i><span>10</span></div>
+            <div class="stats-item stats-item--tasks" title="Задачи"><i class="fas fa-check-square"></i><span>0</span></div>
+          </div>
+          <p class="description">Отличная отравная точка для тех, кто хочет понять, почему именно математика работает. О математике и основы логики.</p>
+          <div class="strong-actions"><a class="button button--learn" href="https://bydef.ru/base-math/langs"><i class="fas fa-graduation-cap"></i><span>Учиться!</span></a></div>
+        </div>
+      </section>
+      <section class="book-info">
+        <div class="book-nav">
+          <div class="book-navItem book-navItem--toc" title="Оглавление" v-bind:class="{ '_active': toc }" v-on:click="bookTabClick('toc')"><i class="fas fa-list"></i><span>Оглавление</span></div>
+          <div class="book-navItem book-navItem--index" title="Индекс" v-bind:class="{ '_active': index }" v-on:click="bookTabClick('index')"><i class="fas fa-shapes"></i><span>Индекс</span></div>
+          <div class="book-navItem book-navItem--contributors" title="Вклад" v-bind:class="{ '_active': contributors }" v-on:click="bookTabClick('contributors')"><i class="fas fa-users"></i><span>Вклад</span></div>
+        </div>
+        <div class="contentArea padding book-panes">
+          <div class="book-pane book-pane--toc" v-bind:class="{ '_showing': toc }">
+            <h2 class="category">Язык математики</h2>
+            <toc-article inline-template="inline-template">
+              <div class="article fancyShadow">
+                <div class="fancyBlock article-body">
+                  <div class="fancyMain article-info">
+                    <h2 class="title"><a href="https://bydef.ru/base-math/langs"><span class="paragraph-num">§1</span>. О языках</a>
+                    </h2>
+                    <div class="description">Перед изучением языка математики надо сначала разобраться, что вообще такое язык. Понятия знака, знаковой системы, языка, семантики и синтаксиса.</div>
+                  </div>
+                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/base-math/langs"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
+                  <ol>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/langs/#Знак">Знак</a></li>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/langs/#Язык">Язык</a></li>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/langs/#Изучение-языка">Изучение языка</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/langs/#Семантика">Семантика</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/langs/#Синтаксис">Синтаксис</a></li>
+                  </ol>
+                </div>
+              </div>
+            </toc-article>
+            <toc-article inline-template="inline-template">
+              <div class="article fancyShadow">
+                <div class="fancyBlock article-body">
+                  <div class="fancyMain article-info">
+                    <h2 class="title"><a href="https://bydef.ru/base-math/math-lang"><span class="paragraph-num">§2</span>. Математический язык</a>
+                    </h2>
+                    <div class="description">Объясняется, что такое математические языки, почему в них входит язык математики, а также чем они отличаются от естественных языков.</div>
+                  </div>
+                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/base-math/math-lang"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
+                  <ol>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/math-lang/#Устранение-громоздкости">Устранение громоздкости</a></li>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/math-lang/#Устранение-двусмысленности">Устранение двусмысленности</a></li>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/math-lang/#Гибкость">Гибкость</a></li>
+                  </ol>
+                </div>
+              </div>
+            </toc-article>
+            <toc-article inline-template="inline-template">
+              <div class="article fancyShadow">
+                <div class="fancyBlock article-body">
+                  <div class="fancyMain article-info">
+                    <h2 class="title"><a href="https://bydef.ru/base-math/alphabet"><span class="paragraph-num">§3</span>. Алфавит</a>
+                    </h2>
+                    <div class="description">Объяснение понятий алфавита и букв. Конструирование базового алфавита языка математики.</div>
+                  </div>
+                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/base-math/alphabet"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
+                  <ol>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/alphabet/#Алфавит-математики">Алфавит математики</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/alphabet/#Цифры">Цифры</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/alphabet/#Переменные-и-постоянные">Переменные и постоянные</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/alphabet/#Операции-и-отношения">Операции и отношения</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/alphabet/#Скобки">Скобки</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/alphabet/#Готовый-алфавит">Готовый алфавит</a></li>
+                  </ol>
+                </div>
+              </div>
+            </toc-article>
+            <toc-article inline-template="inline-template">
+              <div class="article fancyShadow">
+                <div class="fancyBlock article-body">
+                  <div class="fancyMain article-info">
+                    <h2 class="title"><a href="https://bydef.ru/base-math/expressions"><span class="paragraph-num">§4</span>. Выражения</a>
+                    </h2>
+                    <div class="description">Алфавит языка математики составлен. Теперь надо разобраться, какие виды слов можно из него составить, по каким правилам.</div>
+                  </div>
+                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/base-math/expressions"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                </div>
+                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
+                  <ol>
+                    <li class="level-2"><a href="https://bydef.ru/base-math/expressions/#Термы">Термы</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/expressions/#Упрощения">Упрощения</a></li>
+                    <li class="level-3"><a href="https://bydef.ru/base-math/expressions/#Запись-чисел">Запись чисел</a></li>
+                  </ol>
+                </div>
+              </div>
+            </toc-article>
+          </div>
+          <div class="book-pane book-pane--index" v-bind:class="{ '_showing': index }">
+            <index-container inline-template :data-total="10">
+              <div class="index-container">                            
+                <div class="search-index">
+                  <input class="fancyShadow" placeholder="Поиск по индексу..." v-model.trim="search" v-bind:class="{ '_nEmpty': search, '_nResults': !showingNum }"><i class="fas fa-search"></i>
+                </div>
+                <div class="noResults" v-show="!showingNum"><i class="far fa-frown-open"></i>
+                  <div>Ничего не нашлось!</div>
+                </div>
+                <index-item inline-template="inline-template" data-id="alphabet" data-name="Алфавит">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">3.1</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/alphabet#alphabet">Алфавит</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/alphabet#alphabet"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/alphabet.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="letter" data-name="Буква">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">3.2</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/alphabet#letter">Буква</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/alphabet#letter"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/letter.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="expression" data-name="Выражение">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">4.2</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/expressions#expression">Выражение</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/expressions#expression"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/expression.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="sign" data-name="Знак">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/langs#sign">Знак</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/langs#sign"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/sign.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="sign-system" data-name="Знаковая система">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/langs#sign-system">Знаковая система</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/langs#sign-system"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/sign-system.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="math-lang" data-name="Математический язык">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">2.1</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/math-lang#math-lang">Математический язык</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/math-lang#math-lang"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/math-lang.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="semantics" data-name="Семантика">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.3</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/langs#semantics">Семантика</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/langs#semantics"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/semantics.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="syntax" data-name="Синтаксис">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.4</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/langs#syntax">Синтаксис</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/langs#syntax"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/syntax.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="word" data-name="Слово">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">4.1</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/expressions#word">Слово</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/expressions#word"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/word.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="term" data-name="Термы">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">4.3</div>
+                        <div class="indexName"><a href="https://bydef.ru/base-math/expressions#term">Термы</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/base-math/expressions#term"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/base-math/index/term.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+              </div>
+            </index-container>
+          </div>
+          <div class="book-pane book-pane--contributors" v-bind:class="{ '_showing': contributors }">
+            <div class="fancyBlock contributor"><a class="fancyFigure contributorAvatar" href="https://radkopeter.ru" target="_blank"><img src="https://bydef.ru/graphics/contributors/CMTV.png"/></a>
+              <div class="fancyMain contributorInfo">
+                <div class="name"><a href="https://radkopeter.ru" target="_blank">Петр Радько</a><a class="tag tag--forumUrl" href="https://google.com" title="Профиль на форуме"><i class="far fa-comment-dots"></i></a>
+                </div><span class="slogan">Гениями не рождаются! Ими становятся!</span>
+              </div><a class="fancyActions contributorStats" href="https://bydef.ru/contributors/CMTV">
+                <div class="fancyAction contributor-statsItem contributor-statsItem--adds" title="Параграфов написано"><i class="far fa-file-alt"></i><span>4</span></div></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer><a title="Основатель" href="https://radkopeter.ru" target="_blank">Петр Радько</a></footer>
+  </body>
+</html>

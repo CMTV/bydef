@@ -79,12 +79,21 @@
     "index": [
         {
             "type": "definition",
-            "id": "set",
+            "id": "sign",
             "name": "Определение 1.1",
+            "urlPath": "test1/testArticle1#sign",
+            "metaPath": "test1/index/sign.json",
+            "label": "Определение",
+            "numId": "1.1"
+        },
+        {
+            "type": "definition",
+            "id": "set",
+            "name": "Определение 1.2",
             "urlPath": "test1/testArticle1#set",
             "metaPath": "test1/index/set.json",
             "label": "Определение",
-            "numId": "1.1"
+            "numId": "1.2"
         },
         {
             "type": "definition",
@@ -93,7 +102,7 @@
             "urlPath": "test1/testArticle1#set2",
             "metaPath": "test1/index/set2.json",
             "label": "Определение",
-            "numId": "1.2"
+            "numId": "1.3"
         },
         {
             "type": "theorem",

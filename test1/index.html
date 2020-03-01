@@ -64,7 +64,7 @@
           <h1 class="book-title">Тестовый учебник 1</h1>
           <div class="book-stats">
             <div class="stats-item stats-item--articles" title="Параграфы"><i class="fas fa-list"></i><span>2</span></div>
-            <div class="stats-item stats-item--index" title="Определения и теоремы"><i class="fas fa-shapes"></i><span>4</span></div>
+            <div class="stats-item stats-item--index" title="Определения и теоремы"><i class="fas fa-shapes"></i><span>5</span></div>
             <div class="stats-item stats-item--tasks" title="Задачи"><i class="fas fa-check-square"></i><span>2</span></div>
           </div>
           <p class="description">Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника.</p>
@@ -120,7 +120,7 @@
             </toc-article>
           </div>
           <div class="book-pane book-pane--index" v-bind:class="{ '_showing': index }">
-            <index-container inline-template :data-total="4">
+            <index-container inline-template :data-total="5">
               <div class="index-container">                            
                 <div class="search-index">
                   <input class="fancyShadow" placeholder="Поиск по индексу..." v-model.trim="search" v-bind:class="{ '_nEmpty': search, '_nResults': !showingNum }"><i class="fas fa-search"></i>
@@ -128,13 +128,33 @@
                 <div class="noResults" v-show="!showingNum"><i class="far fa-frown-open"></i>
                   <div>Ничего не нашлось!</div>
                 </div>
-                <index-item inline-template="inline-template" data-id="set" data-name="Определение 1.1">
+                <index-item inline-template="inline-template" data-id="sign" data-name="Определение 1.1">
                   <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
                     <div class="fancyBlock indexItem-body">
                       <div class="fancyMain indexItem-info">
                         <div class="indexType">Определение</div>
                         <div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set">Определение 1.1</a></div>
+                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#sign">Определение 1.1</a></div>
+                      </div>
+                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#sign"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/sign.json">
+                      <div class="indexItem-meta">
+                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
+                          <div>Загрузка данных...</div>
+                        </div>
+                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
+                      </div>
+                    </index-meta>
+                  </div>
+                </index-item>
+                <index-item inline-template="inline-template" data-id="set" data-name="Определение 1.2">
+                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
+                    <div class="fancyBlock indexItem-body">
+                      <div class="fancyMain indexItem-info">
+                        <div class="indexType">Определение</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div>
+                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set">Определение 1.2</a></div>
                       </div>
                       <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
                     </div>
@@ -153,7 +173,7 @@
                     <div class="fancyBlock indexItem-body">
                       <div class="fancyMain indexItem-info">
                         <div class="indexType">Определение</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div>
+                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.3</div>
                         <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set2">Первообра ыва зная</a></div>
                       </div>
                       <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set2"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
