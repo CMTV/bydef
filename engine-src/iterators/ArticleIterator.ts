@@ -1,4 +1,4 @@
-import { Iterator, ArticleStepData, StepMeta, BookStepData, TaskStepData } from "./Iterator";
+import { Iterator, ArticleStepData, StepMeta, BookStepData, TaskStepData, IteratorContext } from "./Iterator";
 import { IArticleView } from "../view-templates/pages/IArticleView";
 import { ArticleBuilder } from "../builders/ArticleBuilder";
 import { IHeadView } from "../view-templates/IHeadView";
@@ -10,6 +10,10 @@ import { IArticleHeaderView } from "../view-templates/IArticleHeaderView";
 
 const md = require('markdown-it')({
     html: true
+});
+
+md.use(require('markdown-it-attrs'), {
+    leftDelimiter: '{:'
 });
 
 const config = require('../../config');
@@ -26,8 +30,6 @@ export class ArticleIterator extends Iterator
 
     articleStep(stepData: ArticleStepData, stepMeta: StepMeta)
     {
-        if (!stepMeta.isFirst) this.buildArticle();
-
         //
         this.makeHead(stepData, stepMeta);
 
@@ -102,8 +104,10 @@ export class ArticleIterator extends Iterator
         this.article.content += ComponentBuilder.render(componentData, 'task.pug');
     }
 
-    finally()
+    contextFinally(context: IteratorContext)
     {
+        if (context !== IteratorContext.Article) return;
+
         this.buildArticle();
     }
 

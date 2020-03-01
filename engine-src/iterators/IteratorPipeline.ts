@@ -48,6 +48,11 @@ export class IteratorPipeline
     {
         this.iterators.forEach(iterator => iterator.finally());
     }
+
+    contextFinally(context: IteratorContext)
+    {
+        this.iterators.forEach(iterator => iterator.contextFinally(context));
+    }
 }
 
 export function PreIPipeline(): IteratorPipeline

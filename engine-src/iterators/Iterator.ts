@@ -70,4 +70,5 @@ export abstract class Iterator
     //
 
     finally() {}
+    contextFinally(context: IteratorContext) {}
 }

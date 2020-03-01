@@ -56,7 +56,11 @@ export class IndexIterator extends Iterator
             {
                 metaItem.synonyms = [];
 
-                metaObj.synonyms.synonym.forEach((synonym: any) =>
+                let rawSynonyms = metaObj.synonyms.synonym;
+
+                if (!Array.isArray(rawSynonyms)) rawSynonyms = [rawSynonyms]; 
+
+                rawSynonyms.forEach((synonym: any) =>
                 {
                     metaItem.synonyms.push(synonym._text);
                 });

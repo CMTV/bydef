@@ -4,6 +4,7 @@
     "dependencies": {
         "gulp": "^4.0.2",
         "http-server": "^0.12.1",
+        "markdown-it-attrs": "^3.0.2",
         "pug": "^2.0.4",
         "tsc": "^1.20150623.0",
         "yargs": "^15.1.0"

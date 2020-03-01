@@ -193,8 +193,8 @@ export class MdHelper
                     <a title="Ссылка на этот элемент индекса" href="#${id}">${ articleIndex + '.' + counterOut }</a>
                 `.trim();
 
-                let hasTitle = !!matchObj._attributes.title;
-                let title = matchObj._attributes.title || info;
+                let hasTitle = !!(matchObj._attributes.name || matchObj._attributes.title);
+                let title = matchObj._attributes.name || matchObj._attributes.title || info;
             
                 return `
                     <div id="${id}" class="anchor"></div>

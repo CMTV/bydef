@@ -57,6 +57,8 @@ export function getContributorView(contributor: string|IContributorData, adds: n
 
 export function sortContributors(contributors: IContributorView[])
 {
+    if (!contributors) return;
+
     contributors.sort((a, b) => {
         let aRating = Util.getContributorRating(a.adds, a.edits);
         let bRating = Util.getContributorRating(b.adds, b.edits);

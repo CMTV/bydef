@@ -1,4 +1,4 @@
-import { Iterator, BookStepData, StepMeta, ArticleStepData } from "./Iterator";
+import { Iterator, BookStepData, StepMeta, ArticleStepData, IteratorContext } from "./Iterator";
 import { IBookView } from "../view-templates/pages/IBookView";
 import { BookBuilder } from "../builders/BookBuilder";
 import { IHeadView } from "../view-templates/IHeadView";

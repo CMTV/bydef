@@ -35,6 +35,8 @@ export class Walker
                 isLast: bookIndex + 1 === bookIds.length
             });
         });
+
+        this.pipeline.finally();
     }
 
     protected walk(bookId: string, bookStepMeta: StepMeta = { index: 0, total: 1, isFirst: true, isLast: true })
@@ -134,11 +136,15 @@ export class Walker
                         isLast: taskIndex + 1 === tasksFiles.length
                     });
 
+                    this.pipeline.contextFinally(IteratorContext.Task);
+
                     // \\
                 });
             }
+
+            this.pipeline.contextFinally(IteratorContext.Article);
         });
 
-        this.pipeline.finally();
+        this.pipeline.contextFinally(IteratorContext.Book);
     }
 }

@@ -44,9 +44,16 @@ article
             }
         }
 
-        p, .block, .proof
+        p, .block, .proof, ul, ol
         {
             margin-bottom: $contentMarginBottom;
+        }
+
+
+
+        * > p:last-of-type, * > ul:last-of-type, * > ol:last-of-type
+        {
+            margin-bottom: 0;
         }
 
         h1, h2, h3, h4, h5, h6
