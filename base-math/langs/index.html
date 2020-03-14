@@ -1,100 +1,16 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0">
-    <link rel="icon" href="https://bydef.ru/favicon.svg">
-    <link rel="icon" type="image/png" href="https://bydef.ru/favicon.png">
-    <title>§1. О языках | Основы математики - ByDef</title>
-    <meta name="description" content="Перед изучением языка математики надо сначала разобраться, что вообще такое язык. Понятия знака, знаковой системы, языка, семантики и синтаксиса.">
-    <meta name="generator" content="Static Site Generator &quot;ByDef&quot;">
-    <meta name="keywords" content="знак, язык, семантика, синтаксис">
-    <link rel="canonical" href="https://bydef.ru/base-math/langs">
-    <meta property="og:title" content="§1. О языках | Основы математики - ByDef">
-    <meta property="og:description" content="Перед изучением языка математики надо сначала разобраться, что вообще такое язык. Понятия знака, знаковой системы, языка, семантики и синтаксиса.">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="https://bydef.ru/graphics/og-image.png">
-    <meta property="og:url" content="https://bydef.ru/base-math/langs">
-    <meta property="og:site_name" content="ByDef">
-    <link rel="stylesheet" href="https://bydef.ru/global.min.css">
-    <link rel="stylesheet" href="https://bydef.ru/libs/font-awesome/css/all.min.css">
-    <script src="https://bydef.ru/libs/vue/vue.js"></script>
-    <script>
-      MathJax =
-      {
-          tex: {
-              inlineMath: [['$', '$']],
-              displayMath: [['$$', '$$']],
-              tags: 'ams'
-          },
-          startup: { ready: () => { /* Waiting Vue to fully render */ } }
-      };
-      
-    </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="yandex-verification" content="2253df51bbb7e11b" />
-
-    <link rel="stylesheet" href="https://bydef.ru/styles/article.min.css">
-    <script src="https://bydef.ru/scripts/article.min.js"></script>
-  </head>
-  <body class="page-article">
-    <header>
-      <div class="contentArea">
-        <div class="headerNavItem" id="aside-switcher" title="Навигация"><i class="fas fa-bars"></i></div>
-        <div class="headerInfo"><a class="logotype" href="https://bydef.ru/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><link rel="icon" href="https://bydef.ru/favicon.svg"><link rel="icon" type="image/png" href="https://bydef.ru/favicon.png"><title>§1. О языках | Основы математики - ByDef</title><meta name="description" content="Перед изучением языка математики надо сначала разобраться, что вообще такое язык. Понятия знака, знаковой системы, языка, семантики и синтаксиса."><meta name="generator" content="Static Site Generator &quot;ByDef&quot;"><meta name="keywords" content="знак, язык, семантика, синтаксис"><link rel="canonical" href="https://bydef.ru/base-math/langs"><meta property="og:title" content="§1. О языках | Основы математики - ByDef"><meta property="og:description" content="Перед изучением языка математики надо сначала разобраться, что вообще такое язык. Понятия знака, знаковой системы, языка, семантики и синтаксиса."><meta property="og:type" content="article"><meta property="og:image" content="https://bydef.ru/graphics/og-image.png"><meta property="og:url" content="https://bydef.ru/base-math/langs"><meta property="og:site_name" content="ByDef"><link rel="stylesheet" href="https://bydef.ru/global.min.css"><link rel="stylesheet" href="https://bydef.ru/libs/font-awesome/css/all.min.css"><script src="https://bydef.ru/libs/vue/vue.min.js"></script><script>MathJax =
+{
+    tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        tags: 'ams'
+    },
+    startup: { ready: () => { /* Waiting Vue to fully render */ } }
+};
+</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="yandex-verification" content="2253df51bbb7e11b" />
+<link rel="stylesheet" href="https://bydef.ru/styles/article.min.css"><script src="https://bydef.ru/scripts/article.min.js"></script></head><body class="page-article"><header><div class="contentArea"><div class="headerNavItem" id="aside-switcher" title="Навигация"><i class="fas fa-bars"></i></div><div class="headerInfo"><a class="logotype" href="https://bydef.ru/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <path d="M103.46,118.29c0,27.52-22.67,50.77-49.5,50.77-27.52,0-50.76-23.25-50.76-50.77A50.23,50.23,0,0,1,54,67.52C81.25,67.52,103.46,90.3,103.46,118.29ZM54,330.94c-27.52,0-50.76,23.25-50.76,50.77A50.23,50.23,0,0,0,54,432.48c27.29,0,49.5-22.78,49.5-50.77C103.46,354.19,80.79,330.94,54,330.94ZM164.3,192.25c6.49,2.36,14.1,2.36,20.22,2.36H461.31c6.86,0,14.65,0,21.27-2.34,9.17-3.23,14.22-10.49,14.22-20.43,0-13.23-7.51-19-13.81-21.45-6.58-2.59-14.25-2.59-20.41-2.59H184.52c-6.17,0-13.83,0-20.41,2.59-6.3,2.48-13.82,8.22-13.82,21.45C150.29,181.72,155.27,189,164.3,192.25ZM482.58,307.93c-6.62-2.34-14.41-2.34-21.27-2.34H184.52c-6.12,0-13.73,0-20.22,2.36-9,3.29-14,10.54-14,20.41,0,13.24,7.52,19,13.82,21.46,6.58,2.59,14.24,2.59,20.41,2.59H462.58c6.16,0,13.83,0,20.41-2.59,6.3-2.49,13.81-8.22,13.81-21.46C496.8,318.43,491.75,311.17,482.58,307.93Z"/>
-</svg></a>
-          <div class="sep"></div><a class="bookIcon" href="https://bydef.ru/base-math" title="Страница учебника"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M408.58,82.21q27.57,30.32,42.27,74.25t14.7,99.69q0,55.77-15,99.85t-42,73.49a179.62,179.62,0,0,1-65.91,46.05Q304.63,491,255.85,491q-47.58,0-86.52-15.76a178.8,178.8,0,0,1-66.21-45.75q-27.27-30-42-73.64t-14.7-99.7Q46.45,201,61,157.21t42.42-75q26.67-29.68,66.22-45.45T255.85,21Q304.33,21,343,36.91T408.58,82.21Zm-5.46,173.94q0-87.87-39.39-135.6T256.15,72.82q-68.79,0-108,47.73t-39.24,135.6q0,88.8,40,135.91t107.27,47.12q67.28,0,107.12-47.12T403.12,256.15Zm-72,84.2H308.68V195l-46.9,98.91H248.41L201.85,195V340.35h-21V171.65h30.59l45,93.92L300,171.65h31.15Z"/></svg></a><a class="bookTitle" href="https://bydef.ru/base-math" title="Страница учебника">Основы математики</a>
-        </div>
-        <div class="headerNavGroup"><a class="headerNavItem headerNavItem--donate" href="https://bydef.ru/sponsors" title="Поддержать!"><i class="fas fa-hand-holding-usd"></i></a><a class="headerNavItem headerNavItem--forum" href="" target="_blank" title="Сообщество"><i class="fas fa-comments"></i></a></div>
-      </div>
-    </header>
-    <div class="contentArea">
-      <div id="aside">
-        <transition name="aside-overlay">
-          <div class="aside-overlay" v-if="showing" @click="toggleAside()"></div>
-        </transition>
-        <aside :class="{ '_showing': showing }">
-          <div class="aside-content">
-            <progress max="4" value="1" title="Параграф 1 из 4"></progress>
-            <div class="tocLinks"><a class="tocButton tocButton--donate" title="Поддержать!" href="https://bydef.ru/sponsors"><i class="fas fa-hand-holding-usd"></i></a><a class="tocButton tocButton--forum" title="Сообщество" href=""><i class="fas fa-comments"></i></a><a class="tocButton tocButton--github" title="GitHub репозиторий" href=""><i class="fab fa-github"></i></a>
-            </div>
-            <div class="tocNav"><a class="tocButton tocButton--previous disabled" title="Предыдущий параграф"><i class="fas fa-arrow-left"></i></a>
-              <div class="tocButton tocButton--switchToc" @click="toggleToc()"><i class="fas fa-sitemap"></i><span>{{ tocButtonTextOpposite }}</span></div><a class="tocButton tocButton--next" title="Следующий параграф" href="https://bydef.ru/base-math/expressions"><i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="toc">
-              <transition name="toc--article">
-                <div class="toc--article" v-show="tocButtonTextOpposite == 'Содержание'">
-                  <ol>
-                    <li class="level-2 header" data-id="знак" data-index="0"><a href="#знак">Знак</a></li>
-                    <li class="level-2 header" data-id="язык" data-index="1"><a href="#язык">Язык</a></li>
-                    <li class="level-2 header" data-id="изучение-языка" data-index="2"><a href="#изучение-языка">Изучение языка</a></li>
-                    <li class="level-3 header" data-id="семантика" data-index="3"><a href="#семантика">Семантика</a></li>
-                    <li class="level-3 header" data-id="синтаксис" data-index="4"><a href="#синтаксис">Синтаксис</a></li>
-                  </ol>
-                </div>
-              </transition>
-              <transition name="toc--book">
-                <div class="toc--book" v-show="tocButtonTextOpposite == 'Оглавление'">
-                  <ol>
-                    <li class="category">Язык математики</li>
-                    <li class="article"><a class="current" href="https://bydef.ru/base-math/langs">О языках</a>
-                    </li>
-                    <li class="article"><a href="https://bydef.ru/base-math/math-lang">Математический язык</a>
-                    </li>
-                    <li class="article"><a href="https://bydef.ru/base-math/alphabet">Алфавит</a>
-                    </li>
-                    <li class="article"><a href="https://bydef.ru/base-math/expressions">Выражения</a>
-                    </li>
-                  </ol>
-                </div>
-              </transition>
-            </div>
-          </div>
-        </aside>
-      </div>
-      <article>
-        <div class="content"><h1><span class="paragraph-num">§1</span><span class="title">О языках</span>
-</h1>
+</svg></a><div class="sep"></div><a class="bookIcon" href="https://bydef.ru/base-math" title="Страница учебника"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M408.58,82.21q27.57,30.32,42.27,74.25t14.7,99.69q0,55.77-15,99.85t-42,73.49a179.62,179.62,0,0,1-65.91,46.05Q304.63,491,255.85,491q-47.58,0-86.52-15.76a178.8,178.8,0,0,1-66.21-45.75q-27.27-30-42-73.64t-14.7-99.7Q46.45,201,61,157.21t42.42-75q26.67-29.68,66.22-45.45T255.85,21Q304.33,21,343,36.91T408.58,82.21Zm-5.46,173.94q0-87.87-39.39-135.6T256.15,72.82q-68.79,0-108,47.73t-39.24,135.6q0,88.8,40,135.91t107.27,47.12q67.28,0,107.12-47.12T403.12,256.15Zm-72,84.2H308.68V195l-46.9,98.91H248.41L201.85,195V340.35h-21V171.65h30.59l45,93.92L300,171.65h31.15Z"/></svg></a><a class="bookTitle" href="https://bydef.ru/base-math" title="Страница учебника">Основы математики</a></div><div class="headerNavGroup"><a class="headerNavItem headerNavItem--donate" href="https://bydef.ru/sponsors" title="Поддержать!"><i class="fas fa-hand-holding-usd"></i></a><a class="headerNavItem headerNavItem--forum" href="" target="_blank" title="Сообщество"><i class="fas fa-comments"></i></a></div></div></header><div class="contentArea"><div id="aside"><transition name="aside-overlay"><div class="aside-overlay" v-if="showing" @click="toggleAside()"></div></transition><aside :class="{ '_showing': showing }"><div class="aside-content"><progress max="4" value="1" title="Параграф 1 из 4"></progress><div class="tocLinks"><a class="tocButton tocButton--donate" title="Поддержать!" href="https://bydef.ru/sponsors"><i class="fas fa-hand-holding-usd"></i></a><a class="tocButton tocButton--forum" title="Сообщество" href=""><i class="fas fa-comments"></i></a><a class="tocButton tocButton--github" title="GitHub репозиторий" href=""><i class="fab fa-github"></i></a></div><div class="tocNav"><a class="tocButton tocButton--previous disabled" title="Предыдущий параграф"><i class="fas fa-arrow-left"></i></a><div class="tocButton tocButton--switchToc" @click="toggleToc()"><i class="fas fa-sitemap"></i><span>{{ tocButtonTextOpposite }}</span></div><a class="tocButton tocButton--next" title="Следующий параграф" href="https://bydef.ru/base-math/expressions"><i class="fas fa-arrow-right"></i></a></div><div class="toc"><transition name="toc--article"><div class="toc--article" v-show="tocButtonTextOpposite == 'Содержание'"><ol><li class="level-2 header" data-id="знак" data-index="0"><a href="#знак">Знак</a></li><li class="level-2 header" data-id="язык" data-index="1"><a href="#язык">Язык</a></li><li class="level-2 header" data-id="изучение-языка" data-index="2"><a href="#изучение-языка">Изучение языка</a></li><li class="level-3 header" data-id="семантика" data-index="3"><a href="#семантика">Семантика</a></li><li class="level-3 header" data-id="синтаксис" data-index="4"><a href="#синтаксис">Синтаксис</a></li></ol></div></transition><transition name="toc--book"><div class="toc--book" v-show="tocButtonTextOpposite == 'Оглавление'"><ol><li class="category">Язык математики</li><li class="article"><a class="current" href="https://bydef.ru/base-math/langs">О языках</a></li><li class="article"><a href="https://bydef.ru/base-math/math-lang">Математический язык</a></li><li class="article"><a href="https://bydef.ru/base-math/alphabet">Алфавит</a></li><li class="article"><a href="https://bydef.ru/base-math/expressions">Выражения</a></li></ol></div></transition></div></div></aside></div><article><div class="content"><h1><span class="paragraph-num">§1</span><span class="title">О языках</span></h1>
 <p>И в прошлом, и сейчас крайне большую роль играет информация:</p>
 <ul>
 <li>Прячется ли в кустах тигр</li>
@@ -233,13 +149,7 @@
                             <div class="block-header"><i class="fas fa-exclamation-triangle"></i><span>Это важно!</span></div>
                             <div class="block-content">
                     <p>В определении синтаксиса часть &quot;без рассмотрения их смысла&quot; играет важную роль! Предложение &quot;Все арбузы очень космические&quot; синтаксически абсолютно верно. То, что это полная бессмыслица нас совершенно не волнует. У синтаксиса другая задача.</p>
-</div></div></div>
-        <div class="contributors">
-          <div class="contributor contributor--author"></div>
-        </div>
-      </article>
-    </div>
-  </body><!-- ========================================= -->
+</div></div></div><div class="contributors"><div class="contributor contributor--author"></div></div></article></div></body><!-- ========================================= -->
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -269,5 +179,4 @@
   gtag('config', 'UA-160679381-1');
 </script>
 
-<!-- ========================================= -->
-</html>
+<!-- ========================================= --></html>

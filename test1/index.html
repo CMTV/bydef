@@ -1,55 +1,16 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0">
-    <link rel="icon" href="https://bydef.ru/favicon.svg">
-    <link rel="icon" type="image/png" href="https://bydef.ru/favicon.png">
-    <title>Тестовый учебник 1 - ByDef</title>
-    <meta name="description" content="Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника.">
-    <meta name="generator" content="Static Site Generator &quot;ByDef&quot;">
-    <link rel="canonical" href="https://bydef.ru/test1">
-    <meta property="og:title" content="Тестовый учебник 1 - ByDef">
-    <meta property="og:description" content="Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника.">
-    <meta property="og:type" content="book">
-    <meta property="og:image" content="https://bydef.ru/graphics/og-image.png">
-    <meta property="og:url" content="https://bydef.ru/test1">
-    <meta property="og:site_name" content="ByDef">
-    <link rel="stylesheet" href="https://bydef.ru/global.min.css">
-    <link rel="stylesheet" href="https://bydef.ru/libs/font-awesome/css/all.min.css">
-    <script src="https://bydef.ru/libs/vue/vue.js"></script>
-    <script>
-      MathJax =
-      {
-          tex: {
-              inlineMath: [['$', '$']],
-              displayMath: [['$$', '$$']],
-              tags: 'ams'
-          },
-          startup: { ready: () => { /* Waiting Vue to fully render */ } }
-      };
-      
-    </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="yandex-verification" content="2253df51bbb7e11b" />
-
-    <link rel="stylesheet" href="https://bydef.ru/styles/book.min.css">
-    <script src="https://bydef.ru/scripts/book.min.js"></script>
-    <script src="https://bydef.ru/libs/axios.min.js"></script>
-  </head>
-  <body class="page-book">
-    <div class="notFooter">
-      <section class="header-strong">
-        <section class="topBar">
-          <div class="contentArea">
-            <div class="primary"><a class="logotype" href="https://bydef.ru/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><link rel="icon" href="https://bydef.ru/favicon.svg"><link rel="icon" type="image/png" href="https://bydef.ru/favicon.png"><title>Тестовый учебник 1 - ByDef</title><meta name="description" content="Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника."><meta name="generator" content="Static Site Generator &quot;ByDef&quot;"><link rel="canonical" href="https://bydef.ru/test1"><meta property="og:title" content="Тестовый учебник 1 - ByDef"><meta property="og:description" content="Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного &lt;em&gt;HTML&lt;/em&gt; кода! Описание учебника."><meta property="og:type" content="book"><meta property="og:image" content="https://bydef.ru/graphics/og-image.png"><meta property="og:url" content="https://bydef.ru/test1"><meta property="og:site_name" content="ByDef"><link rel="stylesheet" href="https://bydef.ru/global.min.css"><link rel="stylesheet" href="https://bydef.ru/libs/font-awesome/css/all.min.css"><script src="https://bydef.ru/libs/vue/vue.min.js"></script><script>MathJax =
+{
+    tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        tags: 'ams'
+    },
+    startup: { ready: () => { /* Waiting Vue to fully render */ } }
+};
+</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="yandex-verification" content="2253df51bbb7e11b" />
+<link rel="stylesheet" href="https://bydef.ru/styles/book.min.css"><script src="https://bydef.ru/scripts/book.min.js"></script><script src="https://bydef.ru/libs/axios.min.js"></script></head><body class="page-book"><div class="notFooter"><section class="header-strong"><section class="topBar"><div class="contentArea"><div class="primary"><a class="logotype" href="https://bydef.ru/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <path d="M103.46,118.29c0,27.52-22.67,50.77-49.5,50.77-27.52,0-50.76-23.25-50.76-50.77A50.23,50.23,0,0,1,54,67.52C81.25,67.52,103.46,90.3,103.46,118.29ZM54,330.94c-27.52,0-50.76,23.25-50.76,50.77A50.23,50.23,0,0,0,54,432.48c27.29,0,49.5-22.78,49.5-50.77C103.46,354.19,80.79,330.94,54,330.94ZM164.3,192.25c6.49,2.36,14.1,2.36,20.22,2.36H461.31c6.86,0,14.65,0,21.27-2.34,9.17-3.23,14.22-10.49,14.22-20.43,0-13.23-7.51-19-13.81-21.45-6.58-2.59-14.25-2.59-20.41-2.59H184.52c-6.17,0-13.83,0-20.41,2.59-6.3,2.48-13.82,8.22-13.82,21.45C150.29,181.72,155.27,189,164.3,192.25ZM482.58,307.93c-6.62-2.34-14.41-2.34-21.27-2.34H184.52c-6.12,0-13.73,0-20.22,2.36-9,3.29-14,10.54-14,20.41,0,13.24,7.52,19,13.82,21.46,6.58,2.59,14.24,2.59,20.41,2.59H462.58c6.16,0,13.83,0,20.41-2.59,6.3-2.49,13.81-8.22,13.81-21.46C496.8,318.43,491.75,311.17,482.58,307.93Z"/>
-</svg></a><a class="logotype-text" href="https://bydef.ru/">by<span>def</span></a></div>
-            <div class="actions"><a class="action action--donate" title="Поддержать!" href="https://bydef.ru/sponsors"><i class="fas fa-hand-holding-usd"></i><span>Поддержать!</span></a><a class="action action--forum" title="Форум" href=""><i class="fas fa-comments"></i><span>Форум</span></a>
-            </div>
-          </div>
-        </section>
-        <div class="contentArea padding strong-content">
-          <div class="book-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+</svg></a><a class="logotype-text" href="https://bydef.ru/">by<span>def</span></a></div><div class="actions"><a class="action action--donate" title="Поддержать!" href="https://bydef.ru/sponsors"><i class="fas fa-hand-holding-usd"></i><span>Поддержать!</span></a><a class="action action--forum" title="Форум" href=""><i class="fas fa-comments"></i><span>Форум</span></a></div></div></section><div class="contentArea padding strong-content"><div class="book-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
     <g>
         <rect x="2.5" y="2.5" width="95" height="95"/>
         <path d="M95,5V95H5V5H95m5-5H0V100H100V0Z"/>
@@ -61,198 +22,7 @@
     </g>
     
     <path d="M41,59.2,35.87,74.8H29.25L46.1,25.2h7.73L70.75,74.8H63.91l-5.3-15.6Zm16.27-5L52.43,39.92c-1.11-3.24-1.84-6.18-2.58-9h-.14c-.74,2.94-1.55,6-2.51,9L42.35,54.19Z" style="fill: #39b54a"/>
-</svg></div>
-          <h1 class="book-title">Тестовый учебник 1</h1>
-          <div class="book-stats">
-            <div class="stats-item stats-item--articles" title="Параграфы"><i class="fas fa-list"></i><span>2</span></div>
-            <div class="stats-item stats-item--index" title="Определения и теоремы"><i class="fas fa-shapes"></i><span>5</span></div>
-            <div class="stats-item stats-item--tasks" title="Задачи"><i class="fas fa-check-square"></i><span>2</span></div>
-          </div>
-          <p class="description">Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника.</p>
-          <div class="strong-actions"><a class="button button--learn" href="https://bydef.ru/test1/testArticle1"><i class="fas fa-graduation-cap"></i><span>Учиться!</span></a></div>
-        </div>
-      </section>
-      <section class="book-info">
-        <div class="book-nav">
-          <div class="book-navItem book-navItem--toc" title="Оглавление" v-bind:class="{ '_active': toc }" v-on:click="bookTabClick('toc')"><i class="fas fa-list"></i><span>Оглавление</span></div>
-          <div class="book-navItem book-navItem--index" title="Индекс" v-bind:class="{ '_active': index }" v-on:click="bookTabClick('index')"><i class="fas fa-shapes"></i><span>Индекс</span></div>
-          <div class="book-navItem book-navItem--contributors" title="Вклад" v-bind:class="{ '_active': contributors }" v-on:click="bookTabClick('contributors')"><i class="fas fa-users"></i><span>Вклад</span></div>
-        </div>
-        <div class="contentArea padding book-panes">
-          <div class="book-pane book-pane--toc" v-bind:class="{ '_showing': toc }">
-            <toc-article inline-template="inline-template">
-              <div class="article fancyShadow">
-                <div class="fancyBlock article-body">
-                  <div class="fancyMain article-info">
-                    <h2 class="title"><a href="https://bydef.ru/test1/testArticle1"><span class="paragraph-num">§1</span>. Первый параграф!!</a>
-                    </h2>
-                    <div class="description">Очень длинное и крутое описание первого параграфаф. Можете также с <strong>HTML</strong> кодом!</div>
-                  </div>
-                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/test1/testArticle1"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                </div>
-                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
-                  <ol>
-                    <li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#подсабхеывфа-фвыад">Подсабхеывфа фвыад</a></li>
-                    <li class="level-3"><a href="https://bydef.ru/test1/testArticle1/#sdfkjklajsdklfj">sdfkjklajsdklfj</a></li>
-                    <li class="level-4"><a href="https://bydef.ru/test1/testArticle1/#adsjflkasdjfkl">adsjflkasdjfkl</a></li>
-                    <li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#тестовый-$\land$-раздел">Тестовый $\land$ раздел</a></li>
-                    <li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#kajkljasdklfjfjffff">kajkljasdklfjfjffff</a></li>
-                  </ol>
-                </div>
-              </div>
-            </toc-article>
-            <h2 class="category">О непрерывности</h2>
-            <toc-article inline-template="inline-template">
-              <div class="article fancyShadow">
-                <div class="fancyBlock article-body">
-                  <div class="fancyMain article-info">
-                    <h2 class="title"><a href="https://bydef.ru/test1/testArticle2"><span class="paragraph-num">§2</span>. Второй парагрффак Кек!</a><span class="tag tag--optional" title="Дополнительный параграф. Можно пропустить... Но не стоит!"><i class="fa fa-code-branch fa-flip-vertical"></i></span>
-                    </h2>
-                    <div class="description">Повседневная практика показывает, что новая модель организационной деятельности представляет собой интересный эксперимент проверки модели развития.</div>
-                  </div>
-                  <div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/test1/testArticle2"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                </div>
-                <div class="article-headers" v-bind:class="{ '_showing': headersShowing }">
-                  <ol>
-                    <li class="level-2"><a href="https://bydef.ru/test1/testArticle2/#подсабхеывфа-фвыад">Подсабхеывфа фвыад</a></li>
-                  </ol>
-                </div>
-              </div>
-            </toc-article>
-          </div>
-          <div class="book-pane book-pane--index" v-bind:class="{ '_showing': index }">
-            <index-container inline-template :data-total="5">
-              <div class="index-container">                            
-                <div class="search-index">
-                  <input class="fancyShadow" placeholder="Поиск по индексу..." v-model.trim="search" v-bind:class="{ '_nEmpty': search, '_nResults': !showingNum }"><i class="fas fa-search"></i>
-                </div>
-                <div class="noResults" v-show="!showingNum"><i class="far fa-frown-open"></i>
-                  <div>Ничего не нашлось!</div>
-                </div>
-                <index-item inline-template="inline-template" data-id="sign" data-name="Определение 1.1">
-                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
-                    <div class="fancyBlock indexItem-body">
-                      <div class="fancyMain indexItem-info">
-                        <div class="indexType">Определение</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#sign">Определение 1.1</a></div>
-                      </div>
-                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#sign"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/sign.json">
-                      <div class="indexItem-meta">
-                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
-                          <div>Загрузка данных...</div>
-                        </div>
-                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
-                      </div>
-                    </index-meta>
-                  </div>
-                </index-item>
-                <index-item inline-template="inline-template" data-id="set" data-name="Определение 1.2">
-                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
-                    <div class="fancyBlock indexItem-body">
-                      <div class="fancyMain indexItem-info">
-                        <div class="indexType">Определение</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set">Определение 1.2</a></div>
-                      </div>
-                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/set.json">
-                      <div class="indexItem-meta">
-                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
-                          <div>Загрузка данных...</div>
-                        </div>
-                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
-                      </div>
-                    </index-meta>
-                  </div>
-                </index-item>
-                <index-item inline-template="inline-template" data-id="set2" data-name="Первообра ыва зная">
-                  <div class="indexItem fancyShadow indexItem--definition" v-show="showing">
-                    <div class="fancyBlock indexItem-body">
-                      <div class="fancyMain indexItem-info">
-                        <div class="indexType">Определение</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.3</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set2">Первообра ыва зная</a></div>
-                      </div>
-                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set2"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/set2.json">
-                      <div class="indexItem-meta">
-                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
-                          <div>Загрузка данных...</div>
-                        </div>
-                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
-                      </div>
-                    </index-meta>
-                  </div>
-                </index-item>
-                <index-item inline-template="inline-template" data-id="lele" data-name="Теорема 1.1">
-                  <div class="indexItem fancyShadow indexItem--theorem" v-show="showing">
-                    <div class="fancyBlock indexItem-body">
-                      <div class="fancyMain indexItem-info">
-                        <div class="indexType">Теорема</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#lele">Теорема 1.1</a></div>
-                      </div>
-                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#lele"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/lele.json">
-                      <div class="indexItem-meta">
-                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
-                          <div>Загрузка данных...</div>
-                        </div>
-                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
-                      </div>
-                    </index-meta>
-                  </div>
-                </index-item>
-                <index-item inline-template="inline-template" data-id="pifagor" data-name="Теорема Пифагора">
-                  <div class="indexItem fancyShadow indexItem--theorem" v-show="showing">
-                    <div class="fancyBlock indexItem-body">
-                      <div class="fancyMain indexItem-info">
-                        <div class="indexType">Лемма</div>
-                        <div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div>
-                        <div class="indexName"><a href="https://bydef.ru/test1/testArticle1#pifagor">Теорема Пифагора</a></div>
-                      </div>
-                      <div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#pifagor"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/pifagor.json">
-                      <div class="indexItem-meta">
-                        <div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i>
-                          <div>Загрузка данных...</div>
-                        </div>
-                        <div class="metaData" v-show="!isLoading" v-html="metaContent"></div>
-                      </div>
-                    </index-meta>
-                  </div>
-                </index-item>
-              </div>
-            </index-container>
-          </div>
-          <div class="book-pane book-pane--contributors" v-bind:class="{ '_showing': contributors }">
-            <div class="fancyBlock contributor"><a class="fancyFigure contributorAvatar" href="https://radkopeter.ru" target="_blank"><img src="https://bydef.ru/graphics/contributors/CMTV.png"/></a>
-              <div class="fancyMain contributorInfo">
-                <div class="name"><a href="https://radkopeter.ru" target="_blank">Петр Радько</a><a class="tag tag--forumUrl" href="https://google.com" title="Профиль на форуме"><i class="far fa-comment-dots"></i></a>
-                </div><span class="slogan">Гениями не рождаются! Ими становятся!</span>
-              </div><a class="fancyActions contributorStats" href="https://bydef.ru/contributors/CMTV">
-                <div class="fancyAction contributor-statsItem contributor-statsItem--adds" title="Параграфов написано"><i class="far fa-file-alt"></i><span>1</span></div>
-                <div class="fancyAction contributor-statsItem contributor-statsItem--edits" title="Правок внесено"><i class="far fa-edit"></i><span>1</span></div></a>
-            </div>
-            <div class="fancyBlock contributor"><a class="fancyFigure contributorAvatar" href="https://vk.com/nagibin2509" target="_blank"><i class="fas fa-user-graduate"></i></a>
-              <div class="fancyMain contributorInfo">
-                <div class="name"><a href="https://vk.com/nagibin2509" target="_blank">Николай Нагибин</a>
-                </div><span class="slogan">Тебе уже двадцать? На старт!</span>
-              </div><a class="fancyActions contributorStats" href="https://bydef.ru/contributors/nnagibin">
-                <div class="fancyAction contributor-statsItem contributor-statsItem--adds" title="Параграфов написано"><i class="far fa-file-alt"></i><span>1</span></div></a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <footer><a title="Основатель" href="https://radkopeter.ru" target="_blank">Петр Радько</a></footer><!-- ========================================= -->
+</svg></div><h1 class="book-title">Тестовый учебник 1</h1><div class="book-stats"><div class="stats-item stats-item--articles" title="Параграфы"><i class="fas fa-list"></i><span>2</span></div><div class="stats-item stats-item--index" title="Определения и теоремы"><i class="fas fa-shapes"></i><span>5</span></div><div class="stats-item stats-item--tasks" title="Задачи"><i class="fas fa-check-square"></i><span>2</span></div></div><p class="description">Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника. Тут можно разместить небольшой абзац! Можно даже немного <em>HTML</em> кода! Описание учебника.</p><div class="strong-actions"><a class="button button--learn" href="https://bydef.ru/test1/testArticle1"><i class="fas fa-graduation-cap"></i><span>Учиться!</span></a></div></div></section><section class="book-info"><div class="book-nav"><div class="book-navItem book-navItem--toc" title="Оглавление" v-bind:class="{ '_active': toc }" v-on:click="bookTabClick('toc')"><i class="fas fa-list"></i><span>Оглавление</span></div><div class="book-navItem book-navItem--index" title="Индекс" v-bind:class="{ '_active': index }" v-on:click="bookTabClick('index')"><i class="fas fa-shapes"></i><span>Индекс</span></div><div class="book-navItem book-navItem--contributors" title="Вклад" v-bind:class="{ '_active': contributors }" v-on:click="bookTabClick('contributors')"><i class="fas fa-users"></i><span>Вклад</span></div></div><div class="contentArea padding book-panes"><div class="book-pane book-pane--toc" v-bind:class="{ '_showing': toc }"><toc-article inline-template="inline-template"><div class="article fancyShadow"><div class="fancyBlock article-body"><div class="fancyMain article-info"><h2 class="title"><a href="https://bydef.ru/test1/testArticle1"><span class="paragraph-num">§1</span>. Первый параграф!!</a></h2><div class="description">Очень длинное и крутое описание первого параграфаф. Можете также с <strong>HTML</strong> кодом!</div></div><div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/test1/testArticle1"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><div class="article-headers" v-bind:class="{ '_showing': headersShowing }"><ol><li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#подсабхеывфа-фвыад">Подсабхеывфа фвыад</a></li><li class="level-3"><a href="https://bydef.ru/test1/testArticle1/#sdfkjklajsdklfj">sdfkjklajsdklfj</a></li><li class="level-4"><a href="https://bydef.ru/test1/testArticle1/#adsjflkasdjfkl">adsjflkasdjfkl</a></li><li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#тестовый-$\land$-раздел">Тестовый $\land$ раздел</a></li><li class="level-2"><a href="https://bydef.ru/test1/testArticle1/#kajkljasdklfjfjffff">kajkljasdklfjfjffff</a></li></ol></div></div></toc-article><h2 class="category">О непрерывности</h2><toc-article inline-template="inline-template"><div class="article fancyShadow"><div class="fancyBlock article-body"><div class="fancyMain article-info"><h2 class="title"><a href="https://bydef.ru/test1/testArticle2"><span class="paragraph-num">§2</span>. Второй парагрффак Кек!</a><span class="tag tag--optional" title="Дополнительный параграф. Можно пропустить... Но не стоит!"><i class="fa fa-code-branch fa-flip-vertical"></i></span></h2><div class="description">Повседневная практика показывает, что новая модель организационной деятельности представляет собой интересный эксперимент проверки модели развития.</div></div><div class="fancyActions article-actions"><a class="fancyAction article-action article-action--headers" title="Содержание" v-bind:class="{ '_active': headersShowing }" v-on:click="toggleHeaders()"><i class="fas fa-list-ul"></i><span>Содержание</span></a><a class="fancyAction article-action article-action--goto" title="Перейти к параграфу" href="https://bydef.ru/test1/testArticle2"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><div class="article-headers" v-bind:class="{ '_showing': headersShowing }"><ol><li class="level-2"><a href="https://bydef.ru/test1/testArticle2/#подсабхеывфа-фвыад">Подсабхеывфа фвыад</a></li></ol></div></div></toc-article></div><div class="book-pane book-pane--index" v-bind:class="{ '_showing': index }"><index-container inline-template :data-total="5"><div class="index-container">                            <div class="search-index"><input class="fancyShadow" placeholder="Поиск по индексу..." v-model.trim="search" v-bind:class="{ '_nEmpty': search, '_nResults': !showingNum }"><i class="fas fa-search"></i></div><div class="noResults" v-show="!showingNum"><i class="far fa-frown-open"></i><div>Ничего не нашлось!</div></div><index-item inline-template="inline-template" data-id="sign" data-name="Определение 1.1"><div class="indexItem fancyShadow indexItem--definition" v-show="showing"><div class="fancyBlock indexItem-body"><div class="fancyMain indexItem-info"><div class="indexType">Определение</div><div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div><div class="indexName"><a href="https://bydef.ru/test1/testArticle1#sign">Определение 1.1</a></div></div><div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#sign"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/sign.json"><div class="indexItem-meta"><div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i><div>Загрузка данных...</div></div><div class="metaData" v-show="!isLoading" v-html="metaContent"></div></div></index-meta></div></index-item><index-item inline-template="inline-template" data-id="set" data-name="Определение 1.2"><div class="indexItem fancyShadow indexItem--definition" v-show="showing"><div class="fancyBlock indexItem-body"><div class="fancyMain indexItem-info"><div class="indexType">Определение</div><div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div><div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set">Определение 1.2</a></div></div><div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/set.json"><div class="indexItem-meta"><div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i><div>Загрузка данных...</div></div><div class="metaData" v-show="!isLoading" v-html="metaContent"></div></div></index-meta></div></index-item><index-item inline-template="inline-template" data-id="set2" data-name="Первообра ыва зная"><div class="indexItem fancyShadow indexItem--definition" v-show="showing"><div class="fancyBlock indexItem-body"><div class="fancyMain indexItem-info"><div class="indexType">Определение</div><div class="indexLocation" title="Номер параграфа и элемента индекса">1.3</div><div class="indexName"><a href="https://bydef.ru/test1/testArticle1#set2">Первообра ыва зная</a></div></div><div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#set2"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/set2.json"><div class="indexItem-meta"><div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i><div>Загрузка данных...</div></div><div class="metaData" v-show="!isLoading" v-html="metaContent"></div></div></index-meta></div></index-item><index-item inline-template="inline-template" data-id="lele" data-name="Теорема 1.1"><div class="indexItem fancyShadow indexItem--theorem" v-show="showing"><div class="fancyBlock indexItem-body"><div class="fancyMain indexItem-info"><div class="indexType">Теорема</div><div class="indexLocation" title="Номер параграфа и элемента индекса">1.1</div><div class="indexName"><a href="https://bydef.ru/test1/testArticle1#lele">Теорема 1.1</a></div></div><div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#lele"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/lele.json"><div class="indexItem-meta"><div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i><div>Загрузка данных...</div></div><div class="metaData" v-show="!isLoading" v-html="metaContent"></div></div></index-meta></div></index-item><index-item inline-template="inline-template" data-id="pifagor" data-name="Теорема Пифагора"><div class="indexItem fancyShadow indexItem--theorem" v-show="showing"><div class="fancyBlock indexItem-body"><div class="fancyMain indexItem-info"><div class="indexType">Лемма</div><div class="indexLocation" title="Номер параграфа и элемента индекса">1.2</div><div class="indexName"><a href="https://bydef.ru/test1/testArticle1#pifagor">Теорема Пифагора</a></div></div><div class="fancyActions indexItem-actions"><a class="fancyAction indexItem-action indexItem-action--details" title="Детали" @click="toggleMeta()" :class="{ '_active': metaShowing }"><i class="fas fa-info-circle"></i><span>Детали</span></a><a class="fancyAction indexItem-action indexItem-action--goto" title="Перейти" href="https://bydef.ru/test1/testArticle1#pifagor"><span>Перейти</span><i class="fas fa-arrow-right"></i></a></div></div><index-meta inline-template="inline-template" ref="meta" v-show="metaShowing" data-meta="https://bydef.ru/test1/index/pifagor.json"><div class="indexItem-meta"><div class="loading" v-show="isLoading"><i class="fas fa-sync fa-spin"></i><div>Загрузка данных...</div></div><div class="metaData" v-show="!isLoading" v-html="metaContent"></div></div></index-meta></div></index-item></div></index-container></div><div class="book-pane book-pane--contributors" v-bind:class="{ '_showing': contributors }"><div class="fancyBlock contributor"><a class="fancyFigure contributorAvatar" href="https://radkopeter.ru" target="_blank"><img src="https://bydef.ru/graphics/contributors/CMTV.png"/></a><div class="fancyMain contributorInfo"><div class="name"><a href="https://radkopeter.ru" target="_blank">Петр Радько</a><a class="tag tag--forumUrl" href="https://google.com" title="Профиль на форуме"><i class="far fa-comment-dots"></i></a></div><span class="slogan">Гениями не рождаются! Ими становятся!</span></div><a class="fancyActions contributorStats" href="https://bydef.ru/contributors/CMTV"><div class="fancyAction contributor-statsItem contributor-statsItem--adds" title="Параграфов написано"><i class="far fa-file-alt"></i><span>1</span></div><div class="fancyAction contributor-statsItem contributor-statsItem--edits" title="Правок внесено"><i class="far fa-edit"></i><span>1</span></div></a></div><div class="fancyBlock contributor"><a class="fancyFigure contributorAvatar" href="https://vk.com/nagibin2509" target="_blank"><i class="fas fa-user-graduate"></i></a><div class="fancyMain contributorInfo"><div class="name"><a href="https://vk.com/nagibin2509" target="_blank">Николай Нагибин</a></div><span class="slogan">Тебе уже двадцать? На старт!</span></div><a class="fancyActions contributorStats" href="https://bydef.ru/contributors/nnagibin"><div class="fancyAction contributor-statsItem contributor-statsItem--adds" title="Параграфов написано"><i class="far fa-file-alt"></i><span>1</span></div></a></div></div></div></section></div><footer><a title="Основатель" href="https://radkopeter.ru" target="_blank">Петр Радько</a></footer><!-- ========================================= -->
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -282,6 +52,4 @@
   gtag('config', 'UA-160679381-1');
 </script>
 
-<!-- ========================================= -->
-  </body>
-</html>
+<!-- ========================================= --></body></html>
