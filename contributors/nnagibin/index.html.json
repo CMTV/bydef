@@ -12,7 +12,8 @@
     "head": {
         "title": "Николай Нагибин - ByDef",
         "description": "Вклад пользователя \"Николай Нагибин\" в учебники ByDef.",
-        "canonicalUrl": "https://bydef.ru/contributors/nnagibin"
+        "canonicalUrl": "https://bydef.ru/contributors/nnagibin",
+        "ogImage": "https://bydef.ru/graphics/og-image.png"
     },
     "contributor": {
         "id": "nnagibin",

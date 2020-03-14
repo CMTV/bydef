@@ -12,7 +12,8 @@
     "head": {
         "title": "Аноним Б - ByDef",
         "description": "Вклад пользователя \"Аноним Б\" в учебники ByDef.",
-        "canonicalUrl": "https://bydef.ru/contributors/anonim"
+        "canonicalUrl": "https://bydef.ru/contributors/anonim",
+        "ogImage": "https://bydef.ru/graphics/og-image.png"
     },
     "contributor": {
         "id": "anonim",

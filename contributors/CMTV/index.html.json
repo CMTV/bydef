@@ -12,7 +12,8 @@
     "head": {
         "title": "Петр Радько - ByDef",
         "description": "Вклад пользователя \"Петр Радько\" в учебники ByDef.",
-        "canonicalUrl": "https://bydef.ru/contributors/CMTV"
+        "canonicalUrl": "https://bydef.ru/contributors/CMTV",
+        "ogImage": "https://bydef.ru/graphics/og-image.png"
     },
     "contributor": {
         "id": "CMTV",
@@ -21,10 +22,34 @@
         "slogan": "Гениями не рождаются! Ими становятся!",
         "forumUrl": "https://google.com",
         "hasAvatar": true,
-        "adds": 5,
+        "adds": 7,
         "edits": 1,
         "place": 1,
         "contributions": [
+            {
+                "type": "add",
+                "book": {
+                    "id": "base-logic",
+                    "title": "Основы логики"
+                },
+                "article": {
+                    "id": "about-math-logic",
+                    "paragraph": 1,
+                    "title": "О математической логике"
+                }
+            },
+            {
+                "type": "add",
+                "book": {
+                    "id": "base-logic",
+                    "title": "Основы логики"
+                },
+                "article": {
+                    "id": "propositions",
+                    "paragraph": 2,
+                    "title": "Высказывания"
+                }
+            },
             {
                 "type": "add",
                 "book": {
