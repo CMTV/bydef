@@ -10,14 +10,14 @@ link(rel="canonical", href=head.canonicalUrl)
 
 //- Open Graph
     
-meta(name="og:title", content=head.title)
-meta(name="og:description", content=head.description)
+meta(property="og:title", content=head.title)
+meta(property="og:description", content=head.description)
 
 if head.ogType
-    meta(name="og:type", content=head.ogType)
+    meta(property="og:type", content=head.ogType)
 
 if head.ogImage
-    meta(name="og:image", content=head.ogImage)
+    meta(property="og:image", content=head.ogImage)
 
-meta(name="og:url", content=head.canonicalUrl)
-meta(name="og:site_name", content="ByDef")
+meta(property="og:url", content=head.canonicalUrl)
+meta(property="og:site_name", content="ByDef")
