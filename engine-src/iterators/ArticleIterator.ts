@@ -2,7 +2,7 @@ import { Iterator, ArticleStepData, StepMeta, BookStepData, TaskStepData, Iterat
 import { IArticleView } from "../view-templates/pages/IArticleView";
 import { ArticleBuilder } from "../builders/ArticleBuilder";
 import { IHeadView } from "../view-templates/IHeadView";
-import { UtilIO } from "../Util";
+import { UtilIO, BookUtil } from "../Util";
 import { ITocItemView } from "../view-templates/ITocItemView";
 import { MdHelper } from "../MdHelper";
 import { ComponentBuilder } from "../builders/ComponentBuilder";
@@ -198,10 +198,32 @@ export class ArticleIterator extends Iterator
             description: stepData.article.config.description,
             canonicalUrl: config.url + stepData.book.id + '/' + stepData.article.id,
             keywords: stepData.article.config.keywords,
-            ogType: 'article'
+            ogType: 'article',
+            ogImage: BookUtil.getOgImage(stepData.book.id)
         };
 
         this.article.head = headView;
+    }
+
+    copyArticleFiles()
+    {
+        const fsExtra = require('fs-extra');
+
+        fsExtra.copySync(
+            `books/${this.article.book.id}/articles/${this.article.id}`,
+            `out/${this.article.book.id}/${this.article.id}`,
+            {
+                filter: (src: string, dest: string) => 
+                {
+                    if (src.endsWith("article.md") || src.includes("tasks"))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }
+            }
+        );
     }
 
     //
@@ -211,6 +233,8 @@ export class ArticleIterator extends Iterator
     buildArticle()
     {
         (new ArticleBuilder(this.article)).build();
+        this.copyArticleFiles();
+
         this.article = <IArticleView> {};
     }
 }

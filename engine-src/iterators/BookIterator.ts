@@ -2,7 +2,7 @@ import { Iterator, BookStepData, StepMeta, ArticleStepData, IteratorContext } fr
 import { IBookView } from "../view-templates/pages/IBookView";
 import { BookBuilder } from "../builders/BookBuilder";
 import { IHeadView } from "../view-templates/IHeadView";
-import { UtilIO, Util } from "../Util";
+import { UtilIO, Util, BookUtil } from "../Util";
 import { getContributorView, sortContributors } from "../view-templates/IContributorView";
 import { getIBookIndexItemViews } from "../view-templates/IBookIndexItemView";
 import { ITocItemView } from "../view-templates/ITocItemView";
@@ -122,16 +122,31 @@ export class BookIterator extends Iterator
             canonicalUrl: config.url + stepData.book.id,
             keywords: stepData.book.config.keywords,
             ogType: 'book',
-            ogImage: config.url + stepData.book.id + '/og.png'
+            ogImage: BookUtil.getOgImage(stepData.book.id)
         };
 
         this.book.head = headView;
+    }
+
+    rest()
+    {
+        const fsExtra = require('fs-extra');
+
+        // Moving Open Graph image if exists
+        if (UtilIO.fileExists(`books/${this.book.id}/og.png`))
+        {
+            fsExtra.copySync(
+                `books/${this.book.id}/og.png`,
+                `out/${this.book.id}/og.png`
+            );
+        }
     }
 
     buildBook()
     {
         sortContributors(this.book.contributors);
         this.sortIndex();
+        this.rest();
         
         (new BookBuilder(this.book)).build();
         this.book = <IBookView> {};

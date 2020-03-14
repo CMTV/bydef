@@ -5,7 +5,9 @@ export class Util
         let out = content;
 
         out = out.trim();
-	    out = out.replace(/(\r\n|\n|\r|\s+)/gm, '-');
+        out = out.replace(/(\r\n|\n|\r|\s+)/gm, '-');
+        out = out.replace(/"/gm, '');
+        out = out.toLocaleLowerCase();
 
         return out;
     }
@@ -29,6 +31,23 @@ export class Util
     static up1Letter(str: string): string
     {
         return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+}
+
+export class BookUtil
+{
+    static getOgImage(bookId: string): string
+    {
+        const config = require('../config');
+
+        if (UtilIO.fileExists(`books/${bookId}/og.png`))
+        {
+            return config.url + bookId + '/og.png';
+        }
+        else
+        {
+            return config.url + 'graphics/og-image.png';
+        }
     }
 }
 

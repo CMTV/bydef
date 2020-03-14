@@ -1,5 +1,7 @@
 import { Util } from "../Util";
 
+const config = require('../../config');
+
 export interface IHeadView
 {
     title: string;
@@ -35,6 +37,10 @@ export function getHeadView(data: IHeadView): IHeadView
     if ('ogImage' in _data)
     {
         _data.ogImage =     Util.sanitizeMeta(_data.ogImage);
+    }
+    else
+    {
+        _data.ogImage = config.url + 'graphics/og-image.png';
     }
 
     return _data;

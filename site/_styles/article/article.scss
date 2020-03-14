@@ -44,14 +44,36 @@ article
             }
         }
 
+        // Images
+
+        img { width: 100%; height: auto; }
+
+        @for $i from 1 through 9
+        {
+            .w#{$i}
+            {
+                text-align: center;
+
+                img { width: 10% * $i; }
+
+                &:not(.const)
+                {
+                    @include layout(mini)
+                    {
+                        img { width: 100%; }
+                    }
+                }
+            }
+        }
+
+        // \\
+
         p, .block, .proof, ul, ol
         {
             margin-bottom: $contentMarginBottom;
         }
 
-
-
-        * > p:last-of-type, * > ul:last-of-type, * > ol:last-of-type
+        .block > p:last-of-type, .block > ul:last-of-type, .block > ol:last-of-type
         {
             margin-bottom: 0;
         }
