@@ -73,6 +73,8 @@ article
             margin-bottom: $contentMarginBottom;
         }
 
+        ul, ol { text-align: left; }
+
         .block > p:last-of-type, .block > ul:last-of-type, .block > ol:last-of-type
         {
             margin-bottom: 0;
@@ -80,6 +82,8 @@ article
 
         h1, h2, h3, h4, h5, h6
         {
+            text-align: left;
+
             margin-top: $structureGap * 2;
             margin-bottom: $structureGap;
 
